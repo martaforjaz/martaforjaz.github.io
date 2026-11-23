@@ -3,16 +3,16 @@
   const context = canvas?.getContext('2d');
   if (!context) return;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const hero = canvas.closest('.hero');
   let width, height, points, frame;
   let pointer = null;
 
-  hero.addEventListener('pointermove', (event) => {
+  window.addEventListener('pointermove', (event) => {
     if (motion.matches || event.pointerType === 'touch') return;
     const bounds = canvas.getBoundingClientRect();
     pointer = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
   });
-  hero.addEventListener('pointerleave', () => { pointer = null; });
+  document.documentElement.addEventListener('pointerleave', () => { pointer = null; });
+  window.addEventListener('blur', () => { pointer = null; });
 
   function resize() {
     width = canvas.clientWidth;
@@ -21,7 +21,7 @@
     canvas.width = Math.round(width * scale);
     canvas.height = Math.round(height * scale);
     context.setTransform(scale, 0, 0, scale, 0, 0);
-    points = Array.from({ length: width < 620 ? 28 : 52 }, (_, index) => ({
+    points = Array.from({ length: Math.min(125, Math.max(32, Math.round(width * height / 8500))) }, (_, index) => ({
       x: Math.random() * width, y: Math.random() * height,
       dx: (Math.random() - .5) * 1.1, dy: (Math.random() - .5) * 1.1,
       color: index % 5 ? '#448e8b' : '#687fa5',
