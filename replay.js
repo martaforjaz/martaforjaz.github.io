@@ -59,11 +59,3 @@ fetch("assets/chess.json").then(response => {
 }).then(records => { moves = records; if (armVideo) syncBoardToVideo(); draw(); }).catch(() => {
   label.textContent = "Replay unavailable. See the repository for the recorded moves.";
 });
-
-function revealReplayFromHash() {
-  if (location.hash === '#robotics-replay') {
-    document.getElementById('robotics-replay')?.setAttribute('open', '');
-  }
-}
-window.addEventListener('hashchange', revealReplayFromHash);
-revealReplayFromHash();
