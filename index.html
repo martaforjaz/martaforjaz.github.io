@@ -41,6 +41,7 @@
 </style>
 <style>.research-grid .research-image{aspect-ratio:2.4;background:#fff;object-fit:contain;padding:.65rem}</style>
 <link rel="stylesheet" href="research.css">
+<link rel="stylesheet" href="home.css">
 <style>.robotics-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:1.5rem;margin-top:1rem}.robotics-media .replay{max-width:420px;justify-self:start}.arm-video{margin:1rem 0}.arm-video video{display:block;width:100%;height:auto;background:#142d50;border-radius:8px}@media(max-width:720px){.robotics-media{grid-template-columns:1fr}}</style>
 </head>
 <body>
@@ -50,12 +51,28 @@
     <nav aria-label="Main navigation"><a href="#about">About</a><a href="#work">Projects</a><a href="#research">Research</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
   </header>
   <main class="wrap">
-    <section class="hero" id="about" aria-labelledby="intro"><div>
-      
-      <h1 id="intro">Marta Forjaz</h1>
-      <p class="lead">My focus is machine learning, deep learning, and computer vision, with projects in computational pathology and vision-guided robotics. At Johns Hopkins University, my master’s research investigated how slide scanners affect digital pathology images and model features.</p>
-      <div class="links"><a class="primary" href="#work">Explore projects</a><a href="https://github.com/martaforjaz">GitHub</a></div>
-    </div><img class="portrait" src="assets/marta-portrait.webp" width="500" height="625" alt="Marta Forjaz"></section>
+    <section class="hero" aria-labelledby="intro">
+      <div>
+        <h1 id="intro">Marta Forjaz</h1>
+        <p class="lead">I work on machine learning and computer vision. At Johns Hopkins, I studied how scanning the same tissue on different devices changes what AI models see.</p>
+        <div class="links"><a class="primary" href="#work">Explore projects</a><a href="#research">View research</a></div>
+      </div>
+      <figure class="hero-tissue">
+        <div class="tissue-stack">
+          <img src="assets/hero-tissue-original.webp" width="311" height="311" alt="Original ZEISS histology tile">
+          <img src="assets/hero-tissue-harmonized.webp" width="311" height="311" alt="The same tile after image harmonization">
+        </div>
+        <figcaption>Same tissue region · Original ZEISS scan and harmonized image</figcaption>
+      </figure>
+    </section>
+    <section class="chess-feature" aria-labelledby="chess-feature-title">
+      <img src="assets/chess-simulator-preview.webp" width="454" height="307" alt="Simulated robot arm moving across a chessboard">
+      <div>
+        <h2 id="chess-feature-title">Robotic Chess</h2>
+        <p>Follow the robot arm as it moves pieces in MuJoCo, then step through the recorded board states.</p>
+        <div class="links"><a class="primary" href="web/">Try the simulator</a><a href="#robotics-replay">Watch the replay</a></div>
+      </div>
+    </section>
     <section id="work" aria-labelledby="work-title"><h2 id="work-title">Projects</h2>
 <div class="portfolio-grid project-grid">
 <article class="portfolio-card" id="transaction-support-copilot">
@@ -97,6 +114,10 @@
 <article class="portfolio-card"><div><h3>Computer Vision &amp; Robotics</h3><p>Image registration · Segmentation · OpenCV · ROS 2 · MuJoCo</p></div></article>
 <article class="portfolio-card"><div><h3>Data &amp; Software Engineering</h3><p>Python · SQL · DuckDB · BigQuery · Git · GitHub Actions</p></div></article>
 </div></section>
+    <section id="about" class="about-profile" aria-labelledby="about-title">
+      <img class="portrait" src="assets/marta-portrait.webp" width="500" height="625" alt="Marta Forjaz" loading="lazy">
+      <div><h2 id="about-title">About</h2><p>I studied electrical and computer engineering at Instituto Superior Técnico and carried out my master’s thesis research at Johns Hopkins University. My projects explore how machine learning performs when the data or the environment changes.</p></div>
+    </section>
     <section class="contact" id="contact">
       <h2>Let’s talk about the work.</h2>
       <div class="links"><a href="https://www.linkedin.com/in/martaforjazpereira/">LinkedIn</a><a href="https://github.com/martaforjaz">GitHub</a></div>
