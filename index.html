@@ -16,13 +16,25 @@
 @media(max-width:620px){.hero{grid-template-columns:1fr}.portrait{max-width:210px}}
 </style>
   <style>#histology{grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);column-gap:clamp(24px,4vw,52px)}@media(max-width:720px){#histology{grid-template-columns:minmax(0,1fr)}}</style>
-  <style>.more-projects{padding:36px 0 12px}.project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1rem}.project-list article{padding:1.15rem;border:1px solid var(--line);border-radius:8px}.project-list h4{color:var(--navy);font-size:1.05rem;line-height:1.25;margin:0}.project-list p{color:var(--muted);margin:.55rem 0 .75rem}</style>
+<style>
+#research,#work,#skills{padding:3rem 0 0;scroll-margin-top:1rem}
+#research>.lead{margin:0}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:1.2rem}
+.research-grid{margin-top:1.4rem}
+.portfolio-card{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.portfolio-card>div{padding:1.1rem 1.25rem}
+.portfolio-card>img{display:block;width:100%;aspect-ratio:3.3;object-fit:contain;background:#142d50}
+.portfolio-card h3{font-size:1.25rem;line-height:1.2;margin:0}
+.portfolio-card p{color:var(--muted);margin:.65rem 0}
+#robotics-replay .replay{margin:1rem 0}
+#robotics-replay:target .replay{display:block}
+</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
   <header class="nav wrap">
     <a class="brand" href="./">Marta Forjaz Pereira</a>
-    <nav aria-label="Main navigation"><a href="#about">About</a><a href="#work">Projects</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="#about">About</a><a href="#research">Research</a><a href="#work">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
   </header>
   <main class="wrap">
     <section class="hero" id="about" aria-labelledby="intro"><div>
@@ -31,9 +43,10 @@
       <p class="lead">My focus is machine learning, deep learning, and computer vision, with projects in computational pathology and vision-guided robotics. At Johns Hopkins University, my master’s research investigated how slide scanners affect digital pathology images and model features.</p>
       <div class="links"><a class="primary" href="#work">Explore projects</a><a href="https://github.com/martaforjaz">GitHub</a></div>
     </div><img class="portrait" src="assets/marta-portrait.webp" width="500" height="625" alt="Marta Forjaz Pereira"></section>
-    <section id="work" aria-labelledby="work-title">
-      <div class="section-head"><h2 id="work-title">Projects</h2></div>
-      <article class="project" id="histology">
+    <section id="research" aria-labelledby="research-title">
+<h2 id="research-title">Research</h2>
+<p class="lead">Computational pathology research at Johns Hopkins University.</p>
+<article class="project" id="histology">
         <header class="project-art"><img width="1200" height="360" src="assets/scanner-banner.webp" alt="Whole-slide scanner objective above a histology slide"></header>
         <div><h3>Scanner variability and harmonization in digital pathology</h3>
           <p>The same tissue can look different when digitized on different scanners. For my master’s research at Johns Hopkins University, I developed a workflow to register whole-slide images across scanners so that corresponding tissue regions could be compared.</p>
@@ -41,51 +54,32 @@
         </div>
         <figure class="scanner-overview"><img loading="lazy" width="1360" height="960" src="assets/scanner-overview-matched.webp" alt="A: seven matched histology tiles, one per scanner. B: original, Lab and SMILE images from one validation region. C: original, mean and standard deviation, and scanner-specific ridge embeddings in a shared 3D projection."><figcaption><strong>A</strong> The same tissue region across seven scanners. From left to right: Hamamatsu NanoZoomer S210 and S360, Olympus SLIDEVIEW VS200, 3DHISTECH Pannoramic 1000, Pramana Spectral HT-2, ZEISS Axioscan 7 and Roche VENTANA DP 600. <strong>B</strong> The ZEISS tile from A, shown as original, Lab colour transfer and SMILE, using the NanoZoomer S210 as reference. <strong>C</strong> Shared 3D PCA projection of original embeddings, mean/SD correction and scanner-specific ridge, from left to right. Blue indicates Olympus SLIDEVIEW VS200 and orange indicates Hamamatsu NanoZoomer S210.</figcaption></figure>
       </article>
-      <article class="project" id="robotics">
-        <header class="project-art"><img width="1000" height="310" loading="lazy" src="https://raw.githubusercontent.com/martaforjaz/ros2-vision-manipulation/d039a1a7bbe73c055417a9b37ebc1f0705fed99e/figures/chess-illustration.png" alt="Illustrated robot arm reaching across a chessboard"></header>
-        <div><h3>Vision-verified robotic chess</h3>
-          <p>Detect tagged pieces, validate a legal move, simulate the transfer and verify the new board before committing it.</p>
-          <p class="metric"><strong>10 moves</strong> verified in the scripted run, including two captures and one camera retry.</p>
-          <details><summary>Methods and scope</summary><p>OpenCV reads ArUco tags on a synthetic overhead image. A two-link arm moves in MuJoCo with an idealized grasp. The replay shows the recorded board states, and the repo also includes a separate Stockfish run. Contact-rich grasping and collision-aware planning are future work.</p></details>
-          <a class="text-link" href="https://github.com/martaforjaz/ros2-vision-manipulation">See ROS 2 code and evidence</a>
-        </div>
-        <figure class="replay">
+<div class="portfolio-grid research-grid">
+<article class="portfolio-card"><div><h3>TWINS Collection</h3><p>Research on a collection of histology slides that supports comparisons across scanners and studies of tissue structure.</p></div></article>
+<article class="portfolio-card"><div><h3>TiSAM</h3><p>Co-author on a submitted manuscript combining spatial and histopathology foundation models for whole-slide image segmentation.</p></div></article>
+<article class="portfolio-card"><div><h3>3D histology reconstruction</h3><p>Research on reconstructing tissue structure in three dimensions from histology sections.</p></div></article>
+</div></section>
+<section id="work" aria-labelledby="work-title"><h2 id="work-title">Projects</h2>
+<div class="portfolio-grid"><article class="portfolio-card" id="robotics"><img src="https://raw.githubusercontent.com/martaforjaz/ros2-vision-manipulation/d039a1a7bbe73c055417a9b37ebc1f0705fed99e/figures/chess-illustration.png" loading="lazy" alt=""><div><h3>Vision-verified robotic chess</h3><p>A ROS 2 workcell uses ArUco tags to verify chess moves executed in MuJoCo.</p><a href="https://github.com/martaforjaz/ros2-vision-manipulation">GitHub</a> · <a href="#robotics-replay">Interactive replay</a></div></article>
+<article class="portfolio-card" id="nasa"><img src="assets/nasa-illustration.svg" loading="lazy" alt=""><div><h3>Turbofan remaining useful life</h3><p>Predicts remaining engine cycles from NASA C-MAPSS sensor readings and evaluates error on held-out engines.</p><a href="https://github.com/martaforjaz/nasa-engine-rul">GitHub</a></div></article>
+<article class="portfolio-card" id="taxi"><img src="assets/taxi-illustration.svg" loading="lazy" alt=""><div><h3>NYC Taxi Warehouse</h3><p>An incremental DuckDB pipeline with data-quality checks and a measured BigQuery partition benchmark.</p><a href="https://github.com/martaforjaz/nyc-taxi-incremental-warehouse">GitHub</a></div></article>
+<article class="portfolio-card" id="atlas"><div><h3>Metagenomic Binning Benchmark Atlas</h3><p>Traces benchmark data to its sources and compares published binning results under a shared evaluation protocol.</p><a href="https://github.com/martaforjaz/metagenomic-binning-benchmark-atlas">GitHub</a></div></article>
+<article class="portfolio-card" id="factory"><div><h3>Factory Maintenance SQL Pipeline</h3><p>Validates industrial telemetry and produces repeatable maintenance summaries in SQLite and BigQuery.</p><a href="https://github.com/martaforjaz/factory-maintenance-sql">GitHub</a></div></article>
+<article class="portfolio-card" id="pedometer"><div><h3>BLE Sensor Pedometer</h3><p>Arduino firmware detects steps and transmits measurements over Bluetooth Low Energy.</p><a href="https://github.com/martaforjaz/ble-sensor-pedometer">GitHub</a></div></article>
+<article class="portfolio-card" id="arena"><div><h3>Multiplayer Agent Arena</h3><p>A Pygame and Pymunk simulation with a FastAPI interface for autonomous agents.</p><a href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></div></article></div>
+<details id="robotics-replay" open><summary>Robotic chess replay</summary><figure class="replay">
           <div id="board" class="board" role="img" aria-label="Chess board position"></div>
           <div class="replay-controls"><button type="button" id="previous" disabled>Previous</button><p id="move-label" aria-live="polite">Starting position</p><button type="button" id="next" disabled>Next move</button></div>
           <noscript><p><a href="https://github.com/martaforjaz/ros2-vision-manipulation/blob/main/evidence/chess-scripted.json">Read the recorded moves.</a></p></noscript>
           <figcaption>Interactive replay of the recorded simulation.</figcaption>
-        </figure>
-      </article>
-      <article class="project" id="nasa">
-        <header class="project-art"><img width="960" height="275" loading="lazy" src="assets/nasa-illustration.svg" alt="Turbofan life prediction illustration"></header>
-        <div><h3>Engine remaining useful life</h3>
-          <p>Estimate the remaining cycles of a simulated turbofan from trailing sensor readings.</p>
-          <p class="metric"><strong>18.62 cycles</strong> mean absolute error, versus 31.05 for the age baseline.</p>
-          <details><summary>Methods and scope</summary><p>The model uses only readings available through the observation cutoff. I compare it with an age baseline on the 100 held-out C-MAPSS FD001 engine endpoints. The result describes one simulated operating condition.</p></details>
-          <a class="text-link" href="https://github.com/martaforjaz/nasa-engine-rul">See predictions and code</a>
-        </div>
-        <figure><img src="assets/nasa.svg" alt="Prediction error comparison, predicted versus actual engine life and per-engine errors"><figcaption>Out-of-sample evaluation on NASA C-MAPSS FD001.</figcaption></figure>
-      </article>
-      <article class="project" id="taxi">
-        <header class="project-art"><img width="960" height="275" loading="lazy" src="assets/taxi-illustration.svg" alt="NYC taxi warehouse illustration"></header>
-        <div><h3>NYC taxi warehouse</h3>
-          <p>A repeatable pipeline ingests monthly Parquet files, audits data quality and loads records without duplicating earlier batches.</p>
-          <p class="metric"><strong>98.22%</strong> fewer bytes processed for one date-filtered BigQuery query.</p>
-          <details><summary>Methods and scope</summary><p>The local DuckDB pipeline processed 7,052,769 source rows and reconciled the results on replay. Both BigQuery table layouts returned the same 121,901 trips for the benchmark query. The byte reduction is specific to that query.</p></details>
-          <a class="text-link" href="https://github.com/martaforjaz/nyc-taxi-incremental-warehouse">See the benchmark and code</a>
-        </div>
-        <figure><img src="assets/taxi.svg" alt="Panels showing rejection rates, pickups by borough and BigQuery bytes processed"><figcaption>Quality checks and measured partition pruning.</figcaption></figure>
-      </article>
-      <section class="more-projects" aria-labelledby="more-projects-title">
-        <h3 id="more-projects-title">More projects</h3>
-        <div class="project-list">
-          <article><h4>Metagenomic Binning Benchmark Atlas</h4><p>A searchable catalog with traceable benchmark fields and a common AMBER protocol for re-evaluating CONCOCT and MaxBin outputs.</p><a class="text-link" href="https://github.com/martaforjaz/metagenomic-binning-benchmark-atlas">GitHub</a></article>
-          <article><h4>Factory Maintenance SQL Pipeline</h4><p>Industrial telemetry quality checks and repeatable maintenance analytics in SQLite and BigQuery.</p><a class="text-link" href="https://github.com/martaforjaz/factory-maintenance-sql">GitHub</a></article>
-          <article><h4>BLE Sensor Pedometer</h4><p>Arduino firmware for step detection and distance estimation, with Bluetooth telemetry and reproducible trial summaries.</p><a class="text-link" href="https://github.com/martaforjaz/ble-sensor-pedometer">GitHub</a></article>
-          <article><h4>Multiplayer Agent Arena</h4><p>A 2D multiplayer simulation with Pymunk physics, a Pygame viewer, and a FastAPI interface for autonomous agents.</p><a class="text-link" href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></article>
-        </div>
-      </section>
-    </section>
+        </figure></details>
+</section>
+<section id="skills" aria-labelledby="skills-title"><h2 id="skills-title">Skills</h2>
+<div class="portfolio-grid skills-grid">
+<article class="portfolio-card"><div><h3>Machine Learning &amp; Deep Learning</h3><p>PyTorch · Diffusion models · Foundation-model embeddings · Model evaluation</p></div></article>
+<article class="portfolio-card"><div><h3>Computer Vision &amp; Robotics</h3><p>Image registration · Segmentation · OpenCV · ROS 2 · MuJoCo</p></div></article>
+<article class="portfolio-card"><div><h3>Data &amp; Software Engineering</h3><p>Python · SQL · DuckDB · BigQuery · Git · GitHub Actions</p></div></article>
+</div></section>
     <section class="contact" id="contact">
       <h2>Let’s talk about the work.</h2>
       <div class="links"><a href="https://www.linkedin.com/in/martaforjazpereira/">LinkedIn</a><a href="https://github.com/martaforjaz">GitHub</a></div>
