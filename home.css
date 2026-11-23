@@ -23,3 +23,22 @@
 
 .hero-tissue figcaption a{color:white}
 .project-grid{margin-bottom:1.25rem}
+
+
+/* A layered project cover with the tissue detail printed into the foreground. */
+.hero.hero-editorial{display:block;overflow:hidden;padding:0;border-radius:20px;background:#0b100e}
+.hero-scene{position:relative;isolation:isolate;min-height:clamp(330px,55vw,620px);display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 75% 20%,#438c70,transparent 47%),radial-gradient(ellipse at 26% 100%,#1e5946,transparent 55%),#101714}
+.scanner-plane,.hero-sheet{border:1px solid #739d89;border-radius:14px;box-shadow:0 28px 55px #0009}
+.scanner-plane{position:absolute;width:48%;height:59%;top:12%;right:12%;transform:rotate(-13deg) skewX(8deg);background:linear-gradient(145deg,#4e9573aa,#1a342a)}
+.scanner-plane::before,.scanner-plane::after{content:"";position:absolute;inset:12%;border:1px solid #a5c8b585;border-radius:8px}
+.scanner-plane::after{inset:24% 20% 36%}
+.hero-sheet{position:relative;display:grid;grid-template-columns:1fr .85fr;align-items:end;width:min(77%,760px);min-height:clamp(230px,35vw,390px);padding:clamp(20px,4vw,48px);margin-right:9%;overflow:hidden;transform:rotate(-9deg) skewX(4deg);background:linear-gradient(155deg,#101715 39%,#1b493b)}
+.sheet-copy{position:relative;z-index:1}
+.hero-sheet h1{margin:0;font-size:clamp(2.6rem,8vw,7rem);line-height:.9;font-weight:350;letter-spacing:-.065em;text-transform:uppercase}
+.hero-sheet p{color:#fff;font-size:clamp(.74rem,1.55vw,1rem);margin-bottom:0}
+.hero-sheet img{display:block;width:100%;align-self:end;border-radius:8px;transform:translate(12%,14%);box-shadow:0 0 44px #69d3a84a}
+.hero-caption{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem 2rem;padding:clamp(18px,4vw,32px);border-top:1px solid var(--line)}
+.hero-caption p{max-width:54ch;margin:0;color:var(--muted)}
+.chess-feature{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);margin:1.2rem 0 1.5rem}
+.chess-feature h3{font-size:clamp(1.8rem,4vw,3rem)}
+@media(max-width:600px){.hero-sheet{width:82%;margin-right:3%;grid-template-columns:1fr .75fr}.hero-sheet img{transform:translate(9%,8%)}.chess-feature{grid-template-columns:1fr}}

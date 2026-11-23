@@ -51,29 +51,31 @@
     <nav aria-label="Main navigation"><a href="#about">About</a><a href="#work">Projects</a><a href="#research">Research</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
   </header>
   <main class="wrap">
-    <section class="hero" aria-labelledby="intro">
-      <div>
-        <h1 id="intro">Marta Forjaz</h1>
-        <p class="lead">I work on machine learning and computer vision. At Johns Hopkins, I studied how scanning the same tissue on different devices changes what AI models see.</p>
-        <div class="links"><a class="primary" href="#work">Explore projects</a><a href="#research">View research</a></div>
+    <section class="hero hero-editorial" aria-labelledby="intro">
+      <div class="hero-scene">
+        <div class="scanner-plane" aria-hidden="true"></div>
+        <article class="hero-sheet">
+          <div class="sheet-copy">
+            <h1 id="intro">Marta<br>Forjaz</h1>
+            <p>Machine learning &amp; computer vision</p>
+          </div>
+          <img src="assets/hero-tissue-original.webp" width="311" height="311" alt="Detail of a histology slide scanned on ZEISS">
+        </article>
       </div>
-      <figure class="hero-tissue">
-        <div class="tissue-stack">
-          <img src="assets/hero-tissue-original-art.webp" width="311" height="311" alt="Original ZEISS histology tile">
-          <img src="assets/hero-tissue-harmonized-art.webp" width="311" height="311" alt="The same tile after image harmonization">
-        </div>
-        <figcaption>Same tissue region, shown in false colour · <a href="research-histology.html">View project</a></figcaption>
-      </figure>
-    </section>
-    <section class="chess-feature" aria-labelledby="chess-feature-title">
-      <img src="assets/chess-simulator-preview.webp" width="454" height="307" alt="Simulated robot arm moving across a chessboard">
-      <div>
-        <h2 id="chess-feature-title">Robotic Chess</h2>
-        <p>Follow the robot arm as it moves pieces in MuJoCo, then step through the recorded board states.</p>
-        <div class="links"><a class="primary" href="web/">Try the simulator</a><a href="#robotics-replay">View project replay</a></div>
+      <div class="hero-caption">
+        <p>At Johns Hopkins, I studied how scanning the same tissue on different devices changes what AI models see.</p>
+        <div class="links"><a class="primary" href="#work">Explore projects</a><a href="research-histology.html">View project</a></div>
       </div>
     </section>
     <section id="work" aria-labelledby="work-title"><h2 id="work-title">Projects</h2>
+    <article class="chess-feature" aria-labelledby="chess-feature-title">
+      <img src="assets/chess-simulator-preview.webp" width="454" height="307" alt="Simulated robot arm moving across a chessboard">
+      <div>
+        <h3 id="chess-feature-title">Robotic Chess</h3>
+        <p>Follow the robot arm as it moves pieces in MuJoCo, then step through the recorded board states.</p>
+        <div class="links"><a class="primary" href="web/">Try the simulator</a><a href="#robotics-replay">View project replay</a></div>
+      </div>
+    </article>
 <div class="portfolio-grid project-grid">
 <article class="portfolio-card" id="transaction-support-copilot">
 
