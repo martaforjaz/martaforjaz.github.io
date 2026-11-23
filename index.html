@@ -37,6 +37,7 @@
 .project-grid .portfolio-card footer{margin-top:auto;padding-top:.4rem}
 @media(max-width:600px){.project-grid{grid-auto-rows:auto}}
 </style>
+<style>.research-grid .research-image{aspect-ratio:2.4;background:#fff;object-fit:contain;padding:.65rem}</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
@@ -63,9 +64,9 @@
         <figure class="scanner-overview"><img loading="lazy" width="1360" height="960" src="assets/scanner-overview-matched.webp" alt="A: seven matched histology tiles, one per scanner. B: original, Lab and SMILE images from one validation region. C: original, mean and standard deviation, and scanner-specific ridge embeddings in a shared 3D projection."><figcaption><strong>A</strong> The same tissue region across seven scanners. From left to right: Hamamatsu NanoZoomer S210 and S360, Olympus SLIDEVIEW VS200, 3DHISTECH Pannoramic 1000, Pramana Spectral HT-2, ZEISS Axioscan 7 and Roche VENTANA DP 600. <strong>B</strong> The ZEISS tile from A, shown as original, Lab colour transfer and SMILE, using the NanoZoomer S210 as reference. <strong>C</strong> Shared 3D PCA projection of original embeddings, mean/SD correction and scanner-specific ridge, from left to right. Blue indicates Olympus SLIDEVIEW VS200 and orange indicates Hamamatsu NanoZoomer S210.</figcaption></figure>
       </article>
 <div class="portfolio-grid research-grid">
-<article class="portfolio-card"><div><h3>TWINS Collection</h3><p>Research on a collection of histology slides that supports comparisons across scanners and studies of tissue structure.</p></div></article>
-<article class="portfolio-card"><div><h3>TiSAM</h3><p>Co-author on a submitted manuscript combining spatial and histopathology foundation models for whole-slide image segmentation.</p></div></article>
-<article class="portfolio-card"><div><h3>3D histology reconstruction</h3><p>Research on reconstructing tissue structure in three dimensions from histology sections.</p></div></article>
+<article class="portfolio-card"><img class="research-image" src="assets/twins.webp" alt="TWINS Collection logo with a fan of glass slides" loading="lazy"><div><h3>TWINS Collection</h3><p>Research on a collection of histology slides that supports comparisons across scanners and studies of tissue structure.</p></div></article>
+<article class="portfolio-card"><div><h3>TiSAM</h3><p>TiSAM (Tissue Segment Anything Model) combines spatial features from SAM3 with histopathology features from UNI2-h in a multiscale decoder to segment structures in whole-slide images. I am a co-author on the manuscript, which is under journal review. <a href="https://doi.org/10.64898/2026.10.16.759688">Read the preprint</a>.</p></div></article>
+<article class="portfolio-card"><img class="research-image" src="assets/reconstruction.webp" alt="Three-dimensional reconstructions showing labelled structures of the mouse reproductive system" loading="lazy"><div><h3>3D histology reconstruction</h3><p>Serial histology sections are aligned and segmented to build three-dimensional maps of tissue architecture. The figure shows a reconstruction of the mouse reproductive tract from a <a href="https://yutong-zhu.github.io/data/gyn_poster.pdf">public research poster (Figure 4)</a>.</p></div></article>
 </div></section>
 <section id="work" aria-labelledby="work-title"><h2 id="work-title">Projects</h2>
 <div class="portfolio-grid project-grid"><article class="portfolio-card" id="robotics"><img src="https://raw.githubusercontent.com/martaforjaz/ros2-vision-manipulation/d039a1a7bbe73c055417a9b37ebc1f0705fed99e/figures/chess-illustration.png" loading="lazy" alt=""><div><h3>Vision-verified robotic chess</h3><p>A ROS 2 workcell uses ArUco tags to verify chess moves executed in MuJoCo.</p><footer><a href="https://github.com/martaforjaz/ros2-vision-manipulation">GitHub</a> · <a href="#robotics-replay">Interactive replay</a></footer></div></article>
