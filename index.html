@@ -5,19 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Marta Forjaz — computational imaging, data engineering, applied machine learning and robotics portfolio.">
   <title>Marta Forjaz · Engineering portfolio</title>
-  <link rel="icon" type="image/svg+xml" href="assets/4jaz-icon.svg">
   <link rel="stylesheet" href="styles.css">
   <script src="replay.js" defer></script>
   <style>.project-art{grid-column:1/-1}.project-art img{display:block;width:100%;height:auto;border-radius:1rem}</style>
 <style>
 :root{--plum:#286362;--navy:#172d45;--muted:#485867}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,420px);align-items:center;gap:clamp(24px,6vw,90px)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,285px);align-items:center;gap:clamp(24px,6vw,90px)}
 .hero h1{font-size:clamp(2.6rem,6vw,5rem)}
 .brand{display:inline-flex;align-items:center;gap:.6rem}
 .brand img{width:30px;height:30px}
-.portrait{display:block;width:64px;height:64px;object-fit:cover;object-position:center 30%;border-radius:50%;margin-bottom:1rem}
-.hero-mark{display:block;width:100%;height:auto}
-@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-mark{max-width:420px;justify-self:center}}
+.portrait{width:100%;height:auto;border-radius:12px;display:block}
+@media(max-width:620px){.hero{grid-template-columns:1fr}.portrait{max-width:210px}}
 </style>
   <style>#histology{grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);column-gap:clamp(24px,4vw,52px)}@media(max-width:720px){#histology{grid-template-columns:minmax(0,1fr)}}</style>
 <style>
@@ -54,11 +52,10 @@
   <main class="wrap">
     <section class="hero" id="about" aria-labelledby="intro"><div>
       
-      <img class="portrait" src="assets/marta-portrait.webp" width="500" height="625" alt="Marta Forjaz">
       <h1 id="intro">Marta Forjaz</h1>
       <p class="lead">My focus is machine learning, deep learning, and computer vision, with projects in computational pathology and vision-guided robotics. At Johns Hopkins University, my master’s research investigated how slide scanners affect digital pathology images and model features.</p>
       <div class="links"><a class="primary" href="#work">Explore projects</a><a href="https://github.com/martaforjaz">GitHub</a></div>
-    </div><a href="#robotics" aria-label="See the robotic chess project behind the 4JAZ logo"><img class="hero-mark" src="assets/4jaz-chess.svg" width="510" height="210" alt="4JAZ logo with a robotic arm moving a piece on a chessboard"></a></section>
+    </div><img class="portrait" src="assets/marta-portrait.webp" width="500" height="625" alt="Marta Forjaz"></section>
     <section id="work" aria-labelledby="work-title"><h2 id="work-title">Projects</h2>
 <div class="portfolio-grid project-grid">
 <article class="portfolio-card" id="transaction-support-copilot">
