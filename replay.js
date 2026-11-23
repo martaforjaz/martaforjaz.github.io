@@ -8,6 +8,26 @@ const next = document.querySelector("#next");
 const label = document.querySelector("#move-label");
 let moves = [];
 let step = 0;
+const armVideo = document.querySelector("#arm-video");
+const verificationTimes = [0,2.583333,5.166667,10,14.333333,16.916667,19.5,22.083333,24.666667,27.25,29.833333];
+
+function seekToStep() {
+  if (!armVideo) return;
+  armVideo.pause();
+  const seek = () => { armVideo.currentTime = verificationTimes[step] + (step ? .02 : 0); };
+  if (armVideo.readyState >= 1) seek();
+  else armVideo.addEventListener("loadedmetadata", seek, {once:true});
+}
+
+function syncBoardToVideo() {
+  const videoStep = verificationTimes.findLastIndex(time => time <= armVideo.currentTime + .005);
+  const nextStep = Math.min(moves.length, Math.max(0, videoStep));
+  if (nextStep === step) return;
+  step = nextStep;
+  draw();
+}
+armVideo?.addEventListener("timeupdate", syncBoardToVideo);
+armVideo?.addEventListener("seeked", syncBoardToVideo);
 
 function draw() {
   const record = moves[step - 1];
@@ -30,12 +50,12 @@ function draw() {
   next.disabled = step >= moves.length;
 }
 
-previous.addEventListener("click", () => { if (step > 0) { step -= 1; draw(); } });
-next.addEventListener("click", () => { if (step < moves.length) { step += 1; draw(); } });
+previous.addEventListener("click", () => { if (step > 0) { step -= 1; draw(); seekToStep(); } });
+next.addEventListener("click", () => { if (step < moves.length) { step += 1; draw(); seekToStep(); } });
 draw();
 fetch("assets/chess.json").then(response => {
   if (!response.ok) throw Error("Replay unavailable");
   return response.json();
-}).then(records => { moves = records; draw(); }).catch(() => {
+}).then(records => { moves = records; if (armVideo) syncBoardToVideo(); draw(); }).catch(() => {
   label.textContent = "Replay unavailable. See the repository for the recorded moves.";
 });

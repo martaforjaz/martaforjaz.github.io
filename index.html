@@ -39,6 +39,7 @@
 </style>
 <style>.research-grid .research-image{aspect-ratio:2.4;background:#fff;object-fit:contain;padding:.65rem}</style>
 <link rel="stylesheet" href="research.css">
+<style>.robotics-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:1.5rem;margin-top:1rem}.robotics-media .replay{max-width:420px;justify-self:start}.arm-video{margin:1rem 0}.arm-video video{display:block;width:100%;height:auto;background:#142d50;border-radius:8px}@media(max-width:720px){.robotics-media{grid-template-columns:1fr}}</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
@@ -60,13 +61,13 @@
 <article class="portfolio-card" id="atlas"><img src="assets/project-atlas.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Metagenomic Binning Benchmark Atlas</h3><p>Traces benchmark data to its sources and compares published binning results under a shared evaluation protocol.</p><footer><a href="https://github.com/martaforjaz/metagenomic-binning-benchmark-atlas">GitHub</a></footer></div></article>
 <article class="portfolio-card" id="factory"><img src="assets/project-factory.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Factory Maintenance SQL Pipeline</h3><p>Validates industrial telemetry and produces repeatable maintenance summaries in SQLite and BigQuery.</p><footer><a href="https://github.com/martaforjaz/factory-maintenance-sql">GitHub</a></footer></div></article>
 <article class="portfolio-card" id="pedometer"><img src="assets/project-pedometer.svg" loading="lazy" alt="" width="800" height="220"><div><h3>BLE Sensor Pedometer</h3><p>Arduino firmware detects steps and transmits measurements over Bluetooth Low Energy.</p><footer><a href="https://github.com/martaforjaz/ble-sensor-pedometer">GitHub</a></footer></div></article>
-<article class="portfolio-card" id="arena"><img src="assets/project-arena.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Multiplayer Agent Arena</h3><p>A Pygame and Pymunk simulation with a FastAPI interface for autonomous agents.</p><footer><a href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></footer></div></article></div>
-<details id="robotics-replay" open><summary>Robotic chess replay</summary><figure class="replay">
+<article class="portfolio-card" id="arena"><img src="assets/arena-control-point.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Multiplayer Agent Arena</h3><p>Built for the UPC Python course, this Pygame and Pymunk arena exposes a FastAPI interface for agents. The control-point extension compares steering policies in seeded matches.</p><footer><a href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></footer></div></article></div>
+<details id="robotics-replay" open><summary>Robotic chess replay</summary><div class="robotics-media"><figure class="replay">
           <div id="board" class="board" role="img" aria-label="Chess board position"></div>
           <div class="replay-controls"><button type="button" id="previous" disabled>Previous</button><p id="move-label" aria-live="polite">Starting position</p><button type="button" id="next" disabled>Next move</button></div>
           <noscript><p><a href="https://github.com/martaforjaz/ros2-vision-manipulation/blob/main/evidence/chess-scripted.json">Read the recorded moves.</a></p></noscript>
-          <figcaption>Interactive replay of the recorded simulation.</figcaption>
-        </figure></details>
+          <figcaption>Verified board positions. Use the buttons to seek the video.</figcaption>
+        </figure><figure class="arm-video"><video id="arm-video" controls playsinline preload="metadata" width="480" height="384" aria-label="MuJoCo robot arm executing all ten chess moves"><source src="assets/chess-arm.mp4" type="video/mp4"><a href="assets/chess-arm.mp4">Download the arm simulation video</a></video><figcaption>MuJoCo arm motion, including capture removal and the camera retry.</figcaption></figure></div></details>
 </section>
 <section id="research" aria-labelledby="research-title">
 <h2 id="research-title">Research</h2>
