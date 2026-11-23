@@ -9,7 +9,7 @@ const label = document.querySelector("#move-label");
 let moves = [];
 let step = 0;
 const armVideo = document.querySelector("#arm-video");
-const verificationTimes = [0,2.583333,5.166667,10,14.333333,16.916667,19.5,22.083333,24.666667,27.25,29.833333];
+const verificationTimes = [0,2.666667,5.2,9.666667,14.133333,16.666667,19.2,21.733333,24.266667,26.8,29.333333];
 
 function seekToStep() {
   if (!armVideo) return;
