@@ -29,6 +29,14 @@
 #robotics-replay .replay{margin:1rem 0}
 #robotics-replay:target .replay{display:block}
 </style>
+<style>
+.project-grid{grid-auto-rows:1fr}
+.project-grid .portfolio-card{display:flex;flex-direction:column}
+.project-grid .portfolio-card>img{width:100%;height:auto;aspect-ratio:800 / 220;object-fit:contain;flex:none}
+.project-grid .portfolio-card>div{flex:1;display:flex;flex-direction:column}
+.project-grid .portfolio-card footer{margin-top:auto;padding-top:.4rem}
+@media(max-width:600px){.project-grid{grid-auto-rows:auto}}
+</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
@@ -60,13 +68,13 @@
 <article class="portfolio-card"><div><h3>3D histology reconstruction</h3><p>Research on reconstructing tissue structure in three dimensions from histology sections.</p></div></article>
 </div></section>
 <section id="work" aria-labelledby="work-title"><h2 id="work-title">Projects</h2>
-<div class="portfolio-grid"><article class="portfolio-card" id="robotics"><img src="https://raw.githubusercontent.com/martaforjaz/ros2-vision-manipulation/d039a1a7bbe73c055417a9b37ebc1f0705fed99e/figures/chess-illustration.png" loading="lazy" alt=""><div><h3>Vision-verified robotic chess</h3><p>A ROS 2 workcell uses ArUco tags to verify chess moves executed in MuJoCo.</p><a href="https://github.com/martaforjaz/ros2-vision-manipulation">GitHub</a> · <a href="#robotics-replay">Interactive replay</a></div></article>
-<article class="portfolio-card" id="nasa"><img src="assets/nasa-illustration.svg" loading="lazy" alt=""><div><h3>Turbofan remaining useful life</h3><p>Predicts remaining engine cycles from NASA C-MAPSS sensor readings and evaluates error on held-out engines.</p><a href="https://github.com/martaforjaz/nasa-engine-rul">GitHub</a></div></article>
-<article class="portfolio-card" id="taxi"><img src="assets/taxi-illustration.svg" loading="lazy" alt=""><div><h3>NYC Taxi Warehouse</h3><p>An incremental DuckDB pipeline with data-quality checks and a measured BigQuery partition benchmark.</p><a href="https://github.com/martaforjaz/nyc-taxi-incremental-warehouse">GitHub</a></div></article>
-<article class="portfolio-card" id="atlas"><div><h3>Metagenomic Binning Benchmark Atlas</h3><p>Traces benchmark data to its sources and compares published binning results under a shared evaluation protocol.</p><a href="https://github.com/martaforjaz/metagenomic-binning-benchmark-atlas">GitHub</a></div></article>
-<article class="portfolio-card" id="factory"><div><h3>Factory Maintenance SQL Pipeline</h3><p>Validates industrial telemetry and produces repeatable maintenance summaries in SQLite and BigQuery.</p><a href="https://github.com/martaforjaz/factory-maintenance-sql">GitHub</a></div></article>
-<article class="portfolio-card" id="pedometer"><div><h3>BLE Sensor Pedometer</h3><p>Arduino firmware detects steps and transmits measurements over Bluetooth Low Energy.</p><a href="https://github.com/martaforjaz/ble-sensor-pedometer">GitHub</a></div></article>
-<article class="portfolio-card" id="arena"><div><h3>Multiplayer Agent Arena</h3><p>A Pygame and Pymunk simulation with a FastAPI interface for autonomous agents.</p><a href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></div></article></div>
+<div class="portfolio-grid project-grid"><article class="portfolio-card" id="robotics"><img src="https://raw.githubusercontent.com/martaforjaz/ros2-vision-manipulation/d039a1a7bbe73c055417a9b37ebc1f0705fed99e/figures/chess-illustration.png" loading="lazy" alt=""><div><h3>Vision-verified robotic chess</h3><p>A ROS 2 workcell uses ArUco tags to verify chess moves executed in MuJoCo.</p><footer><a href="https://github.com/martaforjaz/ros2-vision-manipulation">GitHub</a> · <a href="#robotics-replay">Interactive replay</a></footer></div></article>
+<article class="portfolio-card" id="nasa"><img src="assets/nasa-illustration.svg" loading="lazy" alt=""><div><h3>Turbofan remaining useful life</h3><p>Predicts remaining engine cycles from NASA C-MAPSS sensor readings and evaluates error on held-out engines.</p><footer><a href="https://github.com/martaforjaz/nasa-engine-rul">GitHub</a></footer></div></article>
+<article class="portfolio-card" id="taxi"><img src="assets/taxi-illustration.svg" loading="lazy" alt=""><div><h3>NYC Taxi Warehouse</h3><p>An incremental DuckDB pipeline with data-quality checks and a measured BigQuery partition benchmark.</p><footer><a href="https://github.com/martaforjaz/nyc-taxi-incremental-warehouse">GitHub</a></footer></div></article>
+<article class="portfolio-card" id="atlas"><img src="assets/project-atlas.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Metagenomic Binning Benchmark Atlas</h3><p>Traces benchmark data to its sources and compares published binning results under a shared evaluation protocol.</p><footer><a href="https://github.com/martaforjaz/metagenomic-binning-benchmark-atlas">GitHub</a></footer></div></article>
+<article class="portfolio-card" id="factory"><img src="assets/project-factory.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Factory Maintenance SQL Pipeline</h3><p>Validates industrial telemetry and produces repeatable maintenance summaries in SQLite and BigQuery.</p><footer><a href="https://github.com/martaforjaz/factory-maintenance-sql">GitHub</a></footer></div></article>
+<article class="portfolio-card" id="pedometer"><img src="assets/project-pedometer.svg" loading="lazy" alt="" width="800" height="220"><div><h3>BLE Sensor Pedometer</h3><p>Arduino firmware detects steps and transmits measurements over Bluetooth Low Energy.</p><footer><a href="https://github.com/martaforjaz/ble-sensor-pedometer">GitHub</a></footer></div></article>
+<article class="portfolio-card" id="arena"><img src="assets/project-arena.svg" loading="lazy" alt="" width="800" height="220"><div><h3>Multiplayer Agent Arena</h3><p>A Pygame and Pymunk simulation with a FastAPI interface for autonomous agents.</p><footer><a href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></footer></div></article></div>
 <details id="robotics-replay" open><summary>Robotic chess replay</summary><figure class="replay">
           <div id="board" class="board" role="img" aria-label="Chess board position"></div>
           <div class="replay-controls"><button type="button" id="previous" disabled>Previous</button><p id="move-label" aria-live="polite">Starting position</p><button type="button" id="next" disabled>Next move</button></div>
