@@ -7,6 +7,7 @@
   <title>Marta Forjaz Pereira · Engineering portfolio</title>
   <link rel="stylesheet" href="styles.css">
   <script src="replay.js" defer></script>
+  <style>.project-art{grid-column:1/-1}.project-art img{display:block;width:100%;height:auto;border-radius:1rem}</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
@@ -24,6 +25,7 @@
     <section id="work" aria-labelledby="work-title">
       <div class="section-head"><p class="eyebrow">SELECTED WORK</p><h2 id="work-title">Four engineering case studies</h2></div>
       <article class="project" id="histology">
+        <header class="project-art"><img width="960" height="275" loading="lazy" src="assets/histology-illustration.svg" alt="Multi-scanner histology illustration"></header>
         <div><p class="eyebrow">RESEARCH · COMPUTER VISION</p><h3>Multi-scanner histology</h3>
           <p>Aligning whole-slide images acquired on different scanners so corresponding tissue regions can be compared.</p>
           <p class="metric"><strong>2,720</strong> images across eight scanners in the research collection.</p>
@@ -33,6 +35,7 @@
         <figure><img src="assets/histology.png" alt="Illustrated workflow for downsampling, coarse alignment and fine registration"><figcaption>Illustrated multi-scanner registration workflow.</figcaption></figure>
       </article>
       <article class="project" id="taxi">
+        <header class="project-art"><img width="960" height="275" loading="lazy" src="assets/taxi-illustration.svg" alt="NYC taxi warehouse illustration"></header>
         <div><p class="eyebrow">DATA ENGINEERING · SQL</p><h3>NYC taxi warehouse</h3>
           <p>A repeatable pipeline ingests monthly Parquet files, audits data quality and loads records without duplicating earlier batches.</p>
           <p class="metric"><strong>98.22%</strong> fewer bytes processed for one date-filtered BigQuery query.</p>
@@ -42,6 +45,7 @@
         <figure><img src="assets/taxi.svg" alt="Panels showing rejection rates, pickups by borough and BigQuery bytes processed"><figcaption>Quality checks and measured partition pruning.</figcaption></figure>
       </article>
       <article class="project" id="nasa">
+        <header class="project-art"><img width="960" height="275" loading="lazy" src="assets/nasa-illustration.svg" alt="Turbofan life prediction illustration"></header>
         <div><p class="eyebrow">APPLIED ML · TIME SERIES</p><h3>Engine remaining useful life</h3>
           <p>Estimate the remaining cycles of a simulated turbofan from trailing sensor readings.</p>
           <p class="metric"><strong>18.62 cycles</strong> mean absolute error, versus 31.05 for the age baseline.</p>
@@ -51,6 +55,7 @@
         <figure><img src="assets/nasa.svg" alt="Prediction error comparison, predicted versus actual engine life and per-engine errors"><figcaption>Out-of-sample evaluation on NASA C-MAPSS FD001.</figcaption></figure>
       </article>
       <article class="project" id="robotics">
+        <header class="project-art"><img width="1000" height="310" loading="lazy" src="https://raw.githubusercontent.com/martaforjaz/ros2-vision-manipulation/d039a1a7bbe73c055417a9b37ebc1f0705fed99e/figures/chess-illustration.png" alt="Illustrated robot arm reaching across a chessboard"></header>
         <div><p class="eyebrow">ROBOTICS · ROS 2</p><h3>Vision-verified robotic chess</h3>
           <p>Detect tagged pieces, validate a legal move, simulate the transfer and verify the new board before committing it.</p>
           <p class="metric"><strong>10 moves</strong> verified in the scripted run, including two captures and one camera retry.</p>
