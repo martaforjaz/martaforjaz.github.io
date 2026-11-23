@@ -16,6 +16,7 @@
 @media(max-width:620px){.hero{grid-template-columns:1fr}.portrait{max-width:210px}}
 </style>
   <style>#histology{grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);column-gap:clamp(24px,4vw,52px)}@media(max-width:720px){#histology{grid-template-columns:minmax(0,1fr)}}</style>
+  <style>.more-projects{padding:36px 0 12px}.project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1rem}.project-list article{padding:1.15rem;border:1px solid var(--line);border-radius:8px}.project-list h4{color:var(--navy);font-size:1.05rem;line-height:1.25;margin:0}.project-list p{color:var(--muted);margin:.55rem 0 .75rem}</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
@@ -75,6 +76,15 @@
         </div>
         <figure><img src="assets/taxi.svg" alt="Panels showing rejection rates, pickups by borough and BigQuery bytes processed"><figcaption>Quality checks and measured partition pruning.</figcaption></figure>
       </article>
+      <section class="more-projects" aria-labelledby="more-projects-title">
+        <h3 id="more-projects-title">More projects</h3>
+        <div class="project-list">
+          <article><h4>Metagenomic Binning Benchmark Atlas</h4><p>A searchable catalog with traceable benchmark fields and a common AMBER protocol for re-evaluating CONCOCT and MaxBin outputs.</p><a class="text-link" href="https://github.com/martaforjaz/metagenomic-binning-benchmark-atlas">GitHub</a></article>
+          <article><h4>Factory Maintenance SQL Pipeline</h4><p>Industrial telemetry quality checks and repeatable maintenance analytics in SQLite and BigQuery.</p><a class="text-link" href="https://github.com/martaforjaz/factory-maintenance-sql">GitHub</a></article>
+          <article><h4>BLE Sensor Pedometer</h4><p>Arduino firmware for step detection and distance estimation, with Bluetooth telemetry and reproducible trial summaries.</p><a class="text-link" href="https://github.com/martaforjaz/ble-sensor-pedometer">GitHub</a></article>
+          <article><h4>Multiplayer Agent Arena</h4><p>A 2D multiplayer simulation with Pymunk physics, a Pygame viewer, and a FastAPI interface for autonomous agents.</p><a class="text-link" href="https://github.com/martaforjaz/UPC_PyGame_Phase2">GitHub</a> · <a href="https://github.com/martaforjaz/python-project">Phase 1</a></article>
+        </div>
+      </section>
     </section>
     <section class="contact" id="contact">
       <h2>Let’s talk about the work.</h2>
