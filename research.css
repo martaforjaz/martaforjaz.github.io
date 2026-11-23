@@ -1,0 +1,13 @@
+.research-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr}
+.research-card{display:flex;flex-direction:column}
+.research-card header{display:flex;align-items:center;min-height:5.5rem;padding:1.05rem 1.25rem;background:#142d50}
+.research-card header h3{color:white}
+.research-card>div{display:flex;flex-direction:column;flex:1}
+.research-card .text-link{margin-top:auto;align-self:flex-start}
+.research-detail{max-width:920px;padding:2.6rem 0 4rem}
+.research-detail h1{font-size:clamp(2.25rem,5vw,4rem)}
+.research-detail h2{font-size:clamp(1.35rem,3vw,2rem);margin:1.6rem 0 .55rem}
+.research-detail p{max-width:70ch}
+.research-detail figure{margin-top:1.6rem}
+.research-detail .collection-logo{max-width:420px}
+@media(max-width:610px){.research-grid{grid-template-columns:1fr}}
