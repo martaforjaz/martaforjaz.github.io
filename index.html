@@ -15,7 +15,7 @@
 .portrait{width:100%;height:auto;border-radius:12px;display:block}
 @media(max-width:620px){.hero{grid-template-columns:1fr}.portrait{max-width:210px}}
 </style>
-  <style>.research-figures{grid-column:1/-1;display:grid;gap:1.8rem}.research-figures figcaption{max-width:75ch}</style>
+  <style>#histology{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);column-gap:clamp(24px,4vw,52px)}@media(max-width:720px){#histology{grid-template-columns:minmax(0,1fr)}}</style>
 </head>
 <body>
   <a class="skip" href="#work">Skip to projects</a>
@@ -34,14 +34,10 @@
       <div class="section-head"><h2 id="work-title">Projects</h2></div>
       <article class="project" id="histology">
         <header class="project-art"><img width="1200" height="360" src="assets/scanner-banner.webp" alt="Whole-slide scanner objective above a histology slide"></header>
+        <figure class="scanner-overview"><img loading="lazy" width="1360" height="1320" src="assets/scanner-overview.webp" alt="A: eight histology tiles, one per scanner. B: original, Lab and SMILE images from one validation region. C: original, mean and standard deviation, and scanner-specific ridge embeddings in a shared 3D projection."><figcaption><strong>A</strong> Scanner variability across eight acquisitions. <strong>B</strong> Image harmonization of one matched region. <strong>C</strong> Feature harmonization in a shared 3D PCA projection.</figcaption></figure>
         <div><h3>Scanner variability and harmonization in digital pathology</h3>
           <p>The same tissue can look different when digitized on different scanners. For my master’s research at Johns Hopkins University, I developed a workflow to register whole-slide images across scanners so that corresponding tissue regions could be compared.</p>
           <p>I studied how scanners affect color, foundation-model embeddings, and segmentation across scanners. I investigated image harmonization before feature extraction and feature harmonization directly in embedding space. One comparison used the Olympus SLIDEVIEW VS200 and Hamamatsu NanoZoomer S210.</p>
-        </div>
-        <figure><img loading="lazy" width="1200" height="319" src="assets/scanner-variability.webp" alt="Histology from eight scanner acquisitions shown as adjacent strips"><figcaption>Cross-scanner histology montage from the thesis presentation.</figcaption></figure>
-        <div class="research-figures">
-          <figure><img loading="lazy" width="1944" height="729" src="assets/image-harmonization.webp" alt="Three views of the same tissue region: original, Lab correction and SMILE"><figcaption>Image harmonization of a matched validation region from the Olympus SLIDEVIEW VS200, with the Hamamatsu NanoZoomer S210 as reference.</figcaption></figure>
-          <figure><img loading="lazy" width="1944" height="648" src="assets/feature-harmonization.webp" alt="Shared 3D PCA projection of original, mean and standard deviation corrected, and scanner-specific ridge embeddings"><figcaption>Feature harmonization in a shared 3D PCA projection. The line marks the same paired region across all three panels.</figcaption></figure>
         </div>
       </article>
       <article class="project" id="robotics">
