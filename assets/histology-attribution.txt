@@ -1,0 +1,19 @@
+Style source: Figures for Papers, Chen Liu.
+https://github.com/ChenLiu-1996/figures4papers
+Source revision: f0bb7559abe90f5e1828797126d4d133c1bd47d7
+
+Used: scientific-figure-making/SKILL.md and the api.md, design-theory.md and common-patterns.md reference conventions, including the semantic palette and publication-style/export helper interfaces.
+
+Licence: Creative Commons Attribution-NonCommercial 4.0 International.
+https://creativecommons.org/licenses/by-nc/4.0/
+Full upstream licence: figures4papers-LICENSE.txt.
+Upstream material is provided as-is without warranties under that licence.
+
+Adaptations: new histology workflow diagram, three-panel layout, compact text sizing, portable font stack, fixed-canvas vector exports, empty measurement panels and pending tile inventory. No upstream scientific datasets or paper results are reused. Attribution does not imply endorsement by Chen Liu.
+
+The adapted styling and these figure assets are supplied for noncommercial use under CC BY-NC 4.0. This notice concerns these figure assets and styling, not the pre-existing image-processing pipeline or CODA.
+
+Regenerate from the project root:
+.venv\Scripts\python.exe tools/create_pipeline_figure.py
+
+Outputs: image_registration_pipeline.png/.svg/.pdf and standalone image_registration_workflow.png/.svg. The SVG files retain editable text. Validation scores and tile counts remain pending; no invented observations are plotted.
