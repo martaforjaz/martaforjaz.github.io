@@ -94,7 +94,7 @@ try {
   await js('window.scrollBy(0,180)');
   await hold(3);
   await command('Browser.grantPermissions',{permissions:['clipboardReadWrite','clipboardSanitizedWrite'],origin:new URL(url).origin});
-  await key('Tab');await key('Tab');await key('Enter');
+  await key('Tab');await key('Tab');await key('Tab');await key('Enter');
   await until('document.querySelector("#copy-status").textContent.startsWith("Copied")');
   await shot('frame-5');
   await hold(4);
