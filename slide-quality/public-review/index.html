@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Slide review report</title><style>body{max-width:1000px;margin:2rem auto;padding:0 1rem;font:16px system-ui;color:#142d50}img{display:block;width:min(100%,850px);margin:1rem 0}.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}article{border-top:1px solid #cbd9e8;margin-top:1.5rem}</style><h1>Slide review</h1><a href="alerts.csv">Download alerts CSV</a><p>1 slides reviewed | 1 processed | 0 resumed | 0 unreadable</p><section id="region-review" hidden><h2>Review a region</h2><p id="region-title"></p>
+<a id="native" target="_blank" rel="noopener"><img id="region-image" alt="Native-resolution tissue region"></a>
+<label>Decision <select id="decision"><option value="">Pending</option><option>Accept</option><option>Rescan</option><option>Manual review</option></select></label>
+<button id="next">Next region</button> <button id="download-review">Save review JSON</button> <button id="download-rescan">Export rescan CSV</button>
+<label>Reopen review <input type="file" id="restore-review" accept=".json"></label><p id="review-status" role="status"></p></section>
+<script>
+const regions=[{"id": "slide-e963f2961ace43ad-404929b4f73e-region-84057-26490.png", "slide": "MY_P.tiff", "x": 84057, "y": 26490, "original": true, "combined": true}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-31521-30274.png", "slide": "MY_P.tiff", "x": 31521, "y": 30274, "original": true, "combined": false}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-36774-30274.png", "slide": "MY_P.tiff", "x": 36774, "y": 30274, "original": true, "combined": false}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-68296-30274.png", "slide": "MY_P.tiff", "x": 68296, "y": 30274, "original": true, "combined": false}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-78803-30274.png", "slide": "MY_P.tiff", "x": 78803, "y": 30274, "original": true, "combined": true}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-84057-30274.png", "slide": "MY_P.tiff", "x": 84057, "y": 30274, "original": true, "combined": true}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-84057-34059.png", "slide": "MY_P.tiff", "x": 84057, "y": 34059, "original": true, "combined": true}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-89310-34059.png", "slide": "MY_P.tiff", "x": 89310, "y": 34059, "original": true, "combined": true}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-57789-37843.png", "slide": "MY_P.tiff", "x": 57789, "y": 37843, "original": true, "combined": false}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-47282-45412.png", "slide": "MY_P.tiff", "x": 47282, "y": 45412, "original": true, "combined": false}, {"id": "slide-e963f2961ace43ad-404929b4f73e-region-21014-71902.png", "slide": "MY_P.tiff", "x": 21014, "y": 71902, "original": true, "combined": false}], panel=document.querySelector("#region-review");
+const node=id=>document.getElementById(id);
+const storage="slide-review:"+location.pathname;
+let decisions={}, active=0;
+try { decisions=JSON.parse(localStorage.getItem(storage)||"{}"); } catch {}
+function remember(){try{localStorage.setItem(storage,JSON.stringify(decisions));}catch{}}
+function view(){
+  if(!regions.length)return;
+  panel.hidden=false;
+  const i=regions.findIndex(row=>"#"+row.id===location.hash);
+  if(i>=0)active=i;
+  const row=regions[active];
+  node("region-title").textContent=row.slide+" | level-zero coordinates ("+row.x+", "+row.y+")";
+  node("native").href=node("region-image").src=row.id;
+  node("decision").value=decisions[row.id]||"";
+  node("next").disabled=active===regions.length-1;
+  if(i>=0) panel.scrollIntoView();
+}
+function download(name,value,type){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([value],{type}));a.download=name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+node("decision").onchange=e=>{decisions[regions[active].id]=e.target.value;remember();};
+node("next").onclick=()=>{if(active+1<regions.length) location.hash=regions[active+1].id;};
+node("download-review").onclick=()=>download("review.json",JSON.stringify(decisions,null,2),"application/json");
+node("download-rescan").onclick=()=>{
+  const rows=regions.filter(r=>decisions[r.id]==="Rescan");
+  const values=rows.map(r=>['"'+r.slide.replaceAll('"','""')+'"',r.x,r.y].join(","));
+  download("rescan.csv",["slide,level0_x,level0_y",...values].join("\r\n"),"text/csv");
+};
+node("restore-review").onchange=async e=>{
+  try{
+    const saved=JSON.parse(await e.target.files[0].text());
+    decisions=Object.fromEntries(regions.filter(r=>["Accept","Rescan","Manual review"].includes(saved[r.id])).map(r=>[r.id,saved[r.id]]));
+    remember();view();node("review-status").textContent="Review restored.";
+  }catch{node("review-status").textContent="Could not read review JSON.";}
+};
+window.addEventListener("hashchange",view);view();
+</script>
+<article><h2>MY_P.tiff</h2><p>Original: 11 | Combined: 5 | Both: 5 | Tissue samples: 145 | Pyramid level 2 | slide thumbnail</p><a href="slide-e963f2961ace43ad-404929b4f73e.png">PNG without alerts</a><div class="pair"><div><h3>Original</h3><img loading="lazy" src="slide-e963f2961ace43ad-404929b4f73e-original-alerts.png" alt="Original detector alerts"></div><div><h3>Combined</h3><img loading="lazy" src="slide-e963f2961ace43ad-404929b4f73e-alerts.png" alt="Combined detector alerts"></div></div><ul><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-84057-26490.png">Region (84057, 26490) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-31521-30274.png">Region (31521, 30274) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-36774-30274.png">Region (36774, 30274) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-68296-30274.png">Region (68296, 30274) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-78803-30274.png">Region (78803, 30274) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-84057-30274.png">Region (84057, 30274) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-84057-34059.png">Region (84057, 34059) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-89310-34059.png">Region (89310, 34059) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-57789-37843.png">Region (57789, 37843) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-47282-45412.png">Region (47282, 45412) at native resolution</a></li><li><a href="#slide-e963f2961ace43ad-404929b4f73e-region-21014-71902.png">Region (21014, 71902) at native resolution</a></li></ul></article>
