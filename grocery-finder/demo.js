@@ -12,7 +12,9 @@ function credit(product, side) {
     link.textContent = product.contributors[side] + " · Open Food Facts";
     return link;
 }
-function render(rank, truth) {
+function render(rank, truth, readText = '') {
+    const seen = terms(readText);
+    const indexedTerms = new Map(data.index.map(row => [row.i, row.tokens]));
     const columns = Object.entries(modes).map(([mode,name]) => {
         const col = document.createElement("div");
         const heading = document.createElement("h3");
@@ -33,6 +35,14 @@ function render(rank, truth) {
             const source = document.createElement("small");
             source.append(credit(item,0));
             copy.append(name,meta,source);
+            if(mode !== "image"){
+                const overlap = (indexedTerms.get(i) || []).filter(word=>seen.has(word));
+                if(overlap.length){
+                    const evidence = document.createElement("small");
+                    evidence.textContent = "Text match: " + overlap.join(", ");
+                    copy.append(evidence);
+                }
+            }
             if(truth===i){
                 const tag=document.createElement("small");
                 tag.className="tag";tag.textContent="Exact barcode match";copy.append(tag);
@@ -57,9 +67,9 @@ function example(i) {
     get("ocr").textContent="OCR: "+(row.text || "No text found");
     const found=data.index.some(entry=>entry.i===row.i);
     const accepts=row.confidence>data.report.threshold;
-    const decision=accepts ? "Threshold passed" : "Needs confirmation";
+    const decision=accepts ? "Threshold passed" : "Needs confirmation · try a clearer photo or enter the barcode";
     get("status").textContent=(found ? "Known product" : "Product absent from catalog")+" · "+decision;
-    render(row.rank,row.i);
+    render(row.rank,row.i,row.text);
 }
 async function upload(file) {
     const id=++token;
@@ -110,17 +120,19 @@ async function upload(file) {
         });
         const rank=Object.fromEntries(Object.keys(modes).map(mode=>[mode,[...scores].sort((a,b)=>b[mode]-a[mode]).slice(0,3).map(x=>x.i)]));
         get("ocr").textContent=readFailed?"OCR unavailable.":text.trim()?"OCR: "+text.trim():"No packaging text detected.";
-        get("status").textContent="Candidate variants · verify the barcode before confirming";
+        get("status").textContent=words.size && scores.some(row=>row.ocr>0)
+            ? "Candidate variants · verify the barcode before confirming"
+            : "Needs confirmation · try a clearer photo of the front or enter the barcode";
         if(!words.size){
             rank.ocr=[];
         }
-        render(rank,null);
+        render(rank,null,text);
     } catch(error) {
         if(id===token)get("status").textContent="Image search failed. Try a different file or reload.";
         console.error(error);
     }
 }
-fetch("results.json").then(response=>{
+fetch("results.json?v=300").then(response=>{
     if(!response.ok)throw Error("Catalog unavailable");
     return response.json();
 }).then(report=>{
@@ -134,3 +146,13 @@ fetch("results.json").then(response=>{
     get("abstention").textContent=`The calibrated threshold accepted ${result.accepted} test queries, including ${result.incorrect_accepts} incorrect and ${result.unknown_accepts} absent products.`;
     example(0);
 }).catch(()=>{get("status").textContent="Could not load the catalog.";});
+
+get("barcode-form").onsubmit = event => {
+    event.preventDefault();
+    const code = get("barcode").value.trim();
+    if (!/^[0-9]{8,14}$/.test(code)) return;
+    const link = document.createElement("a");
+    link.href = "https://world.openfoodfacts.org/product/" + code;
+    link.textContent = "Open barcode " + code + " in Open Food Facts";
+    get("barcode-result").replaceChildren(link);
+};
