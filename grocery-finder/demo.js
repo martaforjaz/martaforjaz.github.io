@@ -140,7 +140,7 @@ fetch("results.json?v=300").then(response=>{
     data.examples.forEach((entry,i)=>get("example").add(new Option(i===0?data.products[entry.i].name:"Product outside the catalog",i)));
     get("example").onchange=event=>example(Number(event.target.value));
     get("upload").onchange=event=>upload(event.target.files[0]);
-    get("example").disabled=get("upload").disabled=false;
+    get("example").disabled=get("upload").disabled=get("batch-files").disabled=false;
     const result=data.report;
     get("metrics").textContent=`${result.catalog} catalog products · ${result.known} known held-out queries · ${result.unknown} absent-product queries`;
     get("abstention").textContent=`The calibrated threshold accepted ${result.accepted} test queries, including ${result.incorrect_accepts} incorrect and ${result.unknown_accepts} absent products.`;
@@ -155,4 +155,49 @@ get("barcode-form").onsubmit = event => {
     link.href = "https://world.openfoodfacts.org/product/" + code;
     link.textContent = "Open barcode " + code + " in Open Food Facts";
     get("barcode-result").replaceChildren(link);
+};
+
+const batch = [];
+let selectedBatch;
+function drawBatch() {
+    get("batch-queue").replaceChildren(...batch.map(row => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = row.file.name + (row.code ? " · verified " + row.code : " · pending");
+        button.setAttribute("aria-pressed", row === selectedBatch);
+        button.onclick = () => {
+            selectedBatch = row;
+            get("batch-code").value = row.code || "";
+            drawBatch();
+            void upload(row.file);
+            get("status").scrollIntoView({block:"center"});
+        };
+        return button;
+    }));
+    get("batch-confirm").disabled = !selectedBatch;
+    get("batch-export").disabled = !batch.some(row => row.code);
+}
+get("batch-files").onchange = event => {
+    batch.length = 0;
+    batch.push(...[...event.target.files].slice(0,30).map(file => ({file,code:""})));
+    selectedBatch = null;
+    get("batch-code").value = "";
+    drawBatch();
+};
+get("batch-confirm").onclick = () => {
+    const barcode = get("batch-code");
+    const code = barcode.value.trim();
+    barcode.setCustomValidity(/^[0-9]{8,14}$/.test(code) ? "" : "Enter an 8–14 digit barcode.");
+    if (!barcode.reportValidity() || !selectedBatch) return;
+    selectedBatch.code = code;
+    drawBatch();
+};
+get("batch-export").onclick = () => {
+    const cell = value => '"' + value.replace(/^[=+\-@\t\r]/,"'$&").replaceAll('"','""') + '"';
+    const rows = batch.filter(row=>row.code).map(row=>[row.file.name,row.code].map(cell).join(","));
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([["filename,verified_barcode",...rows].join("\r\n")],{type:"text/csv"}));
+    a.download = "verified-products.csv";
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 };
