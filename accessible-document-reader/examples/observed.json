@@ -1,0 +1,30 @@
+{
+  "passages": [
+    "A guide to the water cycle",
+    "Evaporation",
+    "Sunlight warms oceans and lakes. Some liquid water becomes water vapor and rises into the atmosphere.",
+    "Condensation",
+    "As air cools, water vapor can form small droplets. Many of these droplets together make a cloud.",
+    "Precipitation",
+    "When droplets grow large enough, they fall. Precipitation can reach the ground as rain or snow.",
+    "Collection",
+    "Rivers carry runoff toward lakes and",
+    "oceans. Some water soaks into the",
+    "soil and moves underground.",
+    "The cycle continues as water moves between the land, oceans and atmosphere."
+  ],
+  "headings": [
+    "A guide to the water cycle",
+    "Evaporation",
+    "Condensation",
+    "Precipitation"
+  ],
+  "nasaPassages": 65,
+  "keyboardTasks": [
+    "open scan",
+    "navigate via headings",
+    "search",
+    "jump and highlight",
+    "copy"
+  ]
+}

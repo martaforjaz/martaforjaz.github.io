@@ -1,0 +1,25 @@
+{
+  "reference_words": 87,
+  "reference_passages": 10,
+  "reference_pairs": 45,
+  "before_gutter_reconstruction": {
+    "word_edits": 55,
+    "normalized_word_error_rate": 0.632183908045977,
+    "reference_passages_found": 10,
+    "passage_pairs_in_order": 39
+  },
+  "after_gutter_reconstruction": {
+    "word_edits": 0,
+    "normalized_word_error_rate": 0.0,
+    "reference_passages_found": 10,
+    "passage_pairs_in_order": 45
+  },
+  "keyboard_tasks": [
+    "open scan",
+    "navigate via headings",
+    "search",
+    "jump and highlight",
+    "copy"
+  ],
+  "nasa_passages_extracted": 65
+}

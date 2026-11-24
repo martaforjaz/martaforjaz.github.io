@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accessible Document Reader</title><link rel="stylesheet" href="style.css">
+<a class="skip" href="#main">Skip to reader</a>
+<main id="main">
+<header><a href="https://martaforjaz.github.io/">Marta Forjaz · Portfolio</a><h1>Accessible Document Reader</h1><p>Search and read a scanned PDF. Document processing takes place in your browser.</p></header>
+<section aria-label="Open a document" class="card">
+<div class="controls"><label>Open a PDF <input type="file" id="file" accept="application/pdf,.pdf"></label>
+<button id="example" type="button">Try a two-column example</button><button id="nasa" type="button">Open NASA water-cycle scan</button></div>
+<p id="status" role="status">Choose an English-language PDF or try the example.</p></section>
+<div id="reader" hidden>
+<div class="card controls"><form id="search"><label for="query">Find text</label> <input id="query" type="search" required> <button>Find</button></form><button id="export" type="button">Download text</button></div>
+<section id="results" class="card" hidden aria-labelledby="results-title"><h2 id="results-title" tabindex="-1">Search results</h2><ol id="matches"></ol></section>
+<div class="workspace">
+<section class="card" aria-labelledby="text-title"><h2 id="text-title">Read the document</h2><nav aria-label="Document headings"><ul id="outline"></ul></nav><div id="transcript"></div></section>
+<section class="card preview" aria-labelledby="preview-title"><h2 id="preview-title">Page preview</h2><p id="location" role="status">Select a passage to see it on the page.</p><canvas id="preview" aria-hidden="true"></canvas></section>
+</div></div>
+</main><script type="module" src="app.mjs"></script></html>
