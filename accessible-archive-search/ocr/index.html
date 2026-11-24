@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neural OCR evaluation · Accessible Archive Search</title>
+<link rel="stylesheet" href="../style.css">
+<main>
+<p><a href="../">Back to Accessible Archive Search</a></p>
+<section class="hero">
+<h1>Can a neural model read the scan better?</h1>
+<p>I trained a CNN and bidirectional GRU with CTC on 3,000 labeled newspaper lines and compared its output with the archived OCR.</p>
+</section>
+<section class="panel">
+<h2>Williamsburg pilot</h2>
+<p>On ten manually cropped and transcribed lines, character error fell from <strong>24.3% to 5.4%</strong>. Word error fell from <strong>58.8% to 25.0%</strong>.</p>
+<p>The neural model recovered “Clymer” and “Western Railroad”, but still misspelled Williamsburg.</p>
+<p><a href="results/williamsburg-pilot.json">See every line and both OCR outputs</a></p>
+<h2>Separate public test set</h2>
+<p>On 240 lines from ten unseen pages, the model reached <strong>12.4% character error</strong>, with 111 lines transcribed exactly. The dataset publisher describes its references as model-verified.</p>
+<p>This pilot measures recognition on line images. Full-page layout and changes in search quality still need evaluation. The live search index continues to use archived OCR.</p>
+<p><a href="results/metrics.json">Training and test metrics</a> · <a href="https://github.com/martaforjaz/martaforjaz.github.io/tree/main/accessible-archive-search/ocr">Training code and reproduction instructions</a></p>
+</section>
+</main>
+</html>

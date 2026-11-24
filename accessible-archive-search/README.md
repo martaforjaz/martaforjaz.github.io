@@ -39,3 +39,9 @@ python -m http.server 8984
 Open the URL reported by the server. The initial archive download is about 36 MB, and the crop requires access to Library of Congress image services. Stop the local server before running `node browser-check.mjs`, which launches its own server and headless Edge. Set `EDGE_PATH` to override the default Edge installation. Set `ARCHIVE_RECORD` to a new empty folder to capture the demonstration frames.
 
 Source: Library of Congress, [Chronicling America: Historic American Newspapers](https://www.loc.gov/collections/chronicling-america/) and [collection rights information](https://www.loc.gov/collections/chronicling-america/about-this-collection/rights-and-access/). Historical text may contain outdated or offensive terminology.
+
+## Neural OCR pilot
+
+A CNN and bidirectional GRU trained with CTC on 3,000 labeled lines reduced character error from **24.3% to 5.4%** on ten manually cropped lines from the Williamsburg scan. Word error fell from **58.8% to 25.0%**. On a separate public test of 240 lines from ten unseen pages, it reached **12.4% character error** and transcribed 111 lines exactly. The pilot isolates line recognition. Full-page layout and retrieval gains remain unmeasured, and the live index uses archived OCR.
+
+[Evaluation and reproduction instructions](ocr/README.md) · [Line-by-line results](ocr/results/williamsburg-pilot.json)

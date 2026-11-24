@@ -1,0 +1,7 @@
+# Newspaper line OCR pilot
+
+A CNN and bidirectional GRU trained with CTC on public English-language newspaper line crops from [Newspaper OCR Gold](https://huggingface.co/datasets/NealCaren/newspaper-ocr-gold). The dataset publisher describes the transcriptions as model-verified. Training used the first train parquet shard, with separate validation and test shards. The script verifies that page IDs do not overlap across the sampled splits.
+
+Download one parquet file for each split using the dataset's parquet listing and name them `data/train.parquet`, `data/val.parquet`, and `data/test.parquet`. Install PyTorch, Pillow, NumPy and PyArrow, then run `python train.py --epochs 16`. The selected checkpoint minimizes validation character error rate.
+
+`results/williamsburg-pilot.json` compares the archive ALTO and the neural model on ten lines from a separately supplied Williamsburg screenshot with manually checked references. Run `python pilot.py PATH_TO_700x442_SCREENSHOT` after saving the [original ALTO](https://tile.loc.gov/storage-services/service/ndnp/nn/batch_nn_aristotle_ver01/data/sn83030272/100479618/1900010601/0069.xml) to `data/williamsburg-alto.xml`. The neural model is applied to manually cropped lines, so this pilot isolates text recognition. It does not compare automatic page layout extraction or retrieval. The Williamsburg lines were not included in the training inputs.
