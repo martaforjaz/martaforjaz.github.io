@@ -27,10 +27,7 @@ try {
     const row=rows.find(r=>r.issue===el('issue').value&&r.line===Number(el('line').value));
     el('scan').src='samples/'+row.issue+'-'+row.line+'.png';
     el('source').href='https://www.loc.gov/resource/sn83030272/'+row.issue+'/ed-1/?sp='+(row.issue===special?4:1);
-    const pairs=[['Checked transcription',row.reference],
-      row.issue===special?['Archived OCR',row.archived_ocr]:['First neural model',row.initial],
-      ['Expanded neural model',row.neural_ocr??row.expanded]];
-    el('comparison').replaceChildren(...pairs.flatMap(([label,value])=>[make('dt',label),make('dd',value)]));
+    el('comparison').replaceChildren(make('dt','Model transcription'),make('dd',row.neural_ocr??row.expanded));
   }
   function selectLines(){
     el('line').replaceChildren(...rows.filter(r=>r.issue===el('issue').value).map(r=>new Option('Line '+r.line,r.line)));
@@ -42,7 +39,7 @@ try {
   el('line').onchange=show;
   el('issue').disabled=el('line').disabled=false;
   selectLines();
-  el('status').textContent='Choose an edition and a line to compare.';
+  el('status').textContent='Choose an edition and a line to read.';
 } catch {
   el('status').textContent='The line comparisons could not be loaded.';
 }

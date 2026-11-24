@@ -4,17 +4,21 @@ A name can be perfectly legible on an old newspaper scan and still disappear fro
 
 [Open the tool](https://martaforjaz.github.io/accessible-archive-search/) · [Watch the captioned demo](https://martaforjaz.github.io/accessible-archive-search/#demo)
 
-![The Williamsburg search result beside the original newspaper scan](demo-poster.png)
+![A historical scan and the neural model transcription in the document reader](demo-poster.png)
+
+## Transcribe your own document
+
+Open the site and choose a PDF, PNG, JPEG, or WebP file. Printed English, up to 30 MB and ten PDF pages, is supported. The browser renders the document, locates the lines, and runs the trained CNN + GRU via ONNX Runtime Web. Only that model's output appears in the transcript, which can be copied or downloaded. Files are processed in the browser. The first run downloads the runtime and model.
 
 ## Try the search
 
-Choose **Try the Williamsburg example**. The tool searches the January 6, 1900 issue of *The Sun* for a report on rail work at Clymer Street. The OCR reads the name as “Wllliamsburg”. Turn off spelling tolerance to see the exact search miss it. Press Tab and Enter to open a result and compare the OCR with the original scan. You can copy the passage and citation or open its stable link.
+Choose **Try the Williamsburg example**. The tool searches the January 6, 1900 issue of *The Sun* for a report on rail work at Clymer Street. The archive index contains a spelling error for that name. Turn off spelling tolerance to see the exact search miss it. Press Tab and Enter to open a result and read the neural transcription beside the original scan. You can copy the passage and citation or open its stable link.
 
 ## Design
 
 - A Python importer streams the Library of Congress ALTO archive. It chooses the highest-confidence OCR token at each overlapping x position, groups up to 14 lines from each OCR block and stores their normalized bounding box. Page identity is the SQLite primary key. Each committed page is a checkpoint.
 - An atomic gzip snapshot publishes up to 40 passages per page. The static website builds a BM25 index in a Web Worker. Optional query expansion finds candidate OCR spellings with character trigrams and a bounded edit-distance or OCR-confusion check. Exact matches retain more weight.
-- The reader resolves the illustration through the issue METS manifest and requests a IIIF crop for the selected bounding box. Results and transcripts are keyboard navigable. Most passages display the automatic OCR. The Williamsburg demo also has a manually checked excerpt, with the original OCR available separately. The search index uses automatic OCR for both search modes.
+- The reader resolves the illustration through the issue METS manifest and requests a IIIF crop for the selected bounding box. Results and transcripts are keyboard navigable. The search index uses archival OCR for both search modes. The reader displays neural output for located passages. The Williamsburg example uses saved output from the same trained checkpoint.
 
 ## Evaluation
 
@@ -22,7 +26,7 @@ The released snapshot covers **2,200 pages and 87,838 passages**. In 13 date-sco
 
 The recovery test exited the importer immediately after committing 24 pages. On restart, it added the remaining 36 pages in the 60-page test prefix and preserved the original 24 records. Replaying the prefix inserted zero duplicate pages. The latency test queried the published snapshot while a separate importer wrote the recovery batch. New pages become visible when an updated snapshot is exported. [Recovery results](recovery.json)
 
-The Edge browser check exercised the exact miss, fuzzy recovery, keyboard navigation from the results to the transcript, loading the actual scan crop, copying the citation, and reopening a permalink. The refinement after the initial test put a matching term in the result excerpt so a reader could see why the result was retrieved. Testing with human participants and screen readers is pending.
+The Edge browser check exercised the exact miss, fuzzy recovery, keyboard navigation from the results to the transcript, loading the actual scan crop, copying the citation, and reopening a permalink. The document-reader smoke test covers neural output for a newspaper sample and an uploaded scanned PDF. Testing with human participants and screen readers is pending.
 
 ## Reproduce
 
@@ -44,6 +48,6 @@ Source: Library of Congress, [Chronicling America: Historic American Newspapers]
 
 The expanded CNN and bidirectional GRU was trained on **11,000 lines from 80 pages**. Training ran for 24 epochs, with epoch 18 selected on public validation data. On the same public test of 240 lines from ten held-out pages, character error fell from **12.4% to 8.9%** and exact lines increased from **111 to 147**. On 36 independently transcribed lines from three issues of *The Sun*, character error fell from **9.5% to 7.3%**, and exact lines increased from **7 to 15**. On the separate Williamsburg example, character error was **24.3%** for the archived OCR, **5.4%** for the first neural model and **3.9%** for the expanded model.
 
-The new demo lets you select a newspaper edition and line and verify the outputs against the scan. These are line-level results. Retrieval and full-page segmentation remain outside the evaluation. The live archive search uses archival OCR.
+The demo lets you upload a document or view neural predictions for a newspaper edition and line. These are line-level results. Retrieval and full-page segmentation remain outside the evaluation. The live archive search uses archival OCR.
 
 [Interactive demo and video](https://martaforjaz.github.io/accessible-archive-search/ocr/) · [Code and reproduction instructions](ocr/README.md) · [Ground-truth transcriptions](ocr/ground-truth/ground-truth.json)

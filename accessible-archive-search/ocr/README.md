@@ -31,3 +31,7 @@ python evaluate_issues.py --samples ground-truth
 ```
 
 The [Williamsburg comparison](results/williamsburg-v2.json) uses ten checked reference lines and the [archived ALTO](https://tile.loc.gov/storage-services/service/ndnp/nn/batch_nn_aristotle_ver01/data/sn83030272/100479618/1900010601/0069.xml) from *The Sun*. Source scans are from the Library of Congress, [Chronicling America](https://www.loc.gov/collections/chronicling-america/). Character and word error rates measure edit distance against the reference. The evaluation uses cropped lines and leaves page segmentation and search ranking outside its scope.
+
+## Browser model
+
+Run `python export_model.py results-v2/checkpoint.pt model` with ONNX installed to rebuild the browser weights and alphabet. The website uses the exported model with ONNX Runtime Web. For a page, Tesseract supplies line coordinates. Its text is discarded.

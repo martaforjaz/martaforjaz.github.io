@@ -6,10 +6,10 @@
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="ocr.css">
 <main>
-<p><a href="../">Back to Accessible Archive Search</a></p>
+<p><a href="../#upload">Transcribe your document</a></p>
 <section class="hero">
-<h1>Can a neural model read the scan better?</h1>
-<p>Compare what the model reads with a transcription checked against the original newspaper.</p>
+<h1>Newspaper transcription examples</h1>
+<p>Browse the original newspaper scans and the trained model's transcription.</p>
 </section>
 <section class="panel" aria-labelledby="benchmark">
 <h2 id="benchmark">OCR evaluation</h2>
@@ -17,7 +17,7 @@
 <p>Character error rate is an edit distance divided by the number of reference characters. The public test and the hand-transcribed editions use different references and are reported separately. The tests score cropped lines. The live search continues to use archival OCR.</p>
 </section>
 <section class="panel" aria-labelledby="compare">
-<h2 id="compare">Read the same line three ways</h2>
+<h2 id="compare">Read a line from the archive</h2>
 <div class="selectors">
 <label>Edition <select id="issue" disabled></select></label>
 <label>Line <select id="line" disabled></select></label>
@@ -28,7 +28,7 @@
 </div>
 <p id="status" role="status">Loading line comparisons...</p>
 </section>
-<section class="panel" id="demo"><h2>Watch the OCR comparison</h2>
+<section class="panel" id="demo"><h2>Watch a document being transcribed</h2>
 <video controls playsinline preload="metadata" src="ocr-demo.mp4" poster="ocr-demo.png">
 <track kind="captions" src="ocr-demo.vtt" srclang="en" label="English" default>
 <a href="ocr-demo.mp4">Download the OCR demo</a></video>

@@ -2,15 +2,33 @@
 <html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accessible Archive Search · Marta Forjaz</title><link rel="stylesheet" href="style.css">
 <a class="skip" href="#main">Skip to archive search</a>
-<header><nav><a href="../">Marta Forjaz</a><a href="#demo">Watch the demo</a></nav></header>
+<header><nav><a href="../">Marta Forjaz</a><a href="#upload">Read a document</a><a href="#demo">Watch the demo</a></nav></header>
 <main id="main" tabindex="-1">
-<section class="hero">
-<h1>Accessible Archive Search</h1>
+<section class="hero" id="upload">
+<h1>Read a scanned document</h1>
+<p>Upload a printed English PDF or a scanned page. The trained model reads it in your browser.</p>
+<form id="upload-form">
+<label for="document-file">Document or page</label>
+<div class="upload-controls"><input id="document-file" type="file" accept=".pdf,image/png,image/jpeg,image/webp" required><button id="transcribe">Transcribe</button></div>
+<label><input id="single-line" type="checkbox"> The image contains one line</label>
+</form>
+<button id="try-scan" type="button">Try a newspaper line</button>
+<p id="upload-status" role="status">PDF, PNG, JPEG or WebP · up to 10 PDF pages</p>
+</section>
+<section id="upload-result" class="panel" hidden aria-labelledby="upload-title">
+<h2 id="upload-title" tabindex="-1">Model transcription</h2>
+<img id="upload-preview" alt="Source image" hidden>
+<div id="upload-text"></div>
+<div class="actions"><button id="upload-copy" type="button">Copy text</button><button id="upload-download" type="button">Download text</button></div>
+<p id="upload-copy-status" role="status"></p>
+</section>
+<section class="panel">
+<h2>Search historical newspapers</h2>
 <p>Find a passage in New York’s historic newspapers and verify it against the original scan.</p>
 <form id="form" role="search">
 <label for="query">Search the archive</label>
 <div class="searchbar"><input id="query" type="search" required maxlength="150" placeholder="Enter a name, place or event"><button id="submit" disabled>Search</button></div>
-<label class="mode"><input type="checkbox" id="fuzzy" checked> Allow for OCR spelling errors</label>
+<label class="mode"><input type="checkbox" id="fuzzy" checked> Allow for spelling differences in the archive index</label>
 <details><summary>Filter by issue date</summary><label>Issue date <input type="date" id="date"></label></details>
 </form>
 <button id="example" type="button" disabled>Try the Williamsburg example</button>
@@ -29,7 +47,7 @@
 <p id="citation"></p>
 <h3 id="transcript-label">Automatic OCR transcript</h3>
 <p id="transcript"></p>
-<details id="raw-ocr" hidden><summary>Show original OCR</summary><p id="raw-transcript"></p></details>
+
 <div class="actions"><button id="copy">Copy transcript and citation</button><a id="permalink">Link to passage</a></div>
 <p id="copy-status" role="status"></p>
 <figure><img id="crop" alt="Original newspaper scan of the selected OCR passage" hidden><figcaption id="image-status" role="status"></figcaption></figure>
@@ -38,10 +56,10 @@
 </div>
 </section>
 </div>
-<section class="panel"><h2>Neural OCR comparison</h2><p>On 36 checked lines from three issues of The Sun, character error fell from 9.5% to 7.3% after expanding training. <a href="ocr/">Compare the scans and transcripts</a> · <a href="ocr/#demo">Watch the OCR demo</a>.</p></section>
-<section class="panel" id="demo"><h2>Watch a search from start to finish</h2>
-<video controls preload="metadata" playsinline src="demo.mp4" poster="demo-poster.png"><track kind="captions" src="demo.vtt" srclang="en" label="English" default><a href="demo.mp4">Download the demo</a></video>
-<p>The video shows a search, passage navigation and verification against the source scan.</p></section>
+<section class="panel"><h2>Neural OCR comparison</h2><p>On 36 checked lines from three issues of The Sun, character error fell from 9.5% to 7.3% after expanding training. <a href="ocr/">See model results on the original scans</a> · <a href="ocr/#demo">Watch the OCR demo</a>.</p></section>
+<section class="panel" id="demo"><h2>Watch a document being transcribed</h2>
+<video controls preload="metadata" playsinline src="ocr/ocr-demo.mp4" poster="ocr/ocr-demo.png"><track kind="captions" src="ocr/ocr-demo.vtt" srclang="en" label="English" default><a href="ocr/ocr-demo.mp4">Download the demo</a></video>
+</section>
 <footer><a href="https://www.loc.gov/collections/chronicling-america/">Source: Library of Congress, Chronicling America</a> · <a href="https://github.com/martaforjaz/martaforjaz.github.io/tree/main/accessible-archive-search">Code and evaluation</a></footer>
 </main>
-<script type="module" src="app.mjs?v=checked-excerpt"></script></html>
+<script type="module" src="app.mjs?v=neural-upload"></script><script type="module" src="upload.mjs"></script></html>

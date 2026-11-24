@@ -1,2 +1,5 @@
 *.gz binary
 *.mp4 binary
+*.onnx binary
+*.wasm binary
+ocr/runtime/* -text -whitespace

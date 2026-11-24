@@ -1,10 +1,11 @@
+import {imageCanvas,transcribeCanvas} from './neural.mjs';
 import {sourceURL} from './engine.mjs';
 const el=id=>document.getElementById(id);
 const worker=new Worker('./worker.mjs',{type:'module'});
 const root='https://tile.loc.gov/storage-services/service/ndnp/nn/batch_nn_aristotle_ver01/data/';
 const iiif='https://tile.loc.gov/image-services/iiif/service:ndnp:nn:batch_nn_aristotle_ver01:data:';
 const manifests=new Map();
-const checkedReadings=new Map([['sn83030272/1900-01-06/ed-1/seq-4/ID5-15','The work of building a freight depot for the Delaware, Lackawanna and Western Railroad at the foot of Clymer street, Williamsburg, has been begun. The land purchased by the railroad contained an old factory and a number of other buildings. All these are being torn down.']]);
+let currentText='';
 let revision=0, searchID=0, current, fromResult, ready=false;
 const hashKey=()=>new URLSearchParams(location.hash.slice(1)).get('passage');
 el('transcript').tabIndex=0;
@@ -35,13 +36,11 @@ function show(p,origin) {
   el('back').hidden=!origin;
   el('detail-hint').hidden=true;
   el('passage').hidden=false;
-  const checked=checkedReadings.get(p.id);
-  el('transcript-label').textContent=checked?'Manually checked excerpt':'Automatic OCR transcript';
-  el('transcript').textContent=checked||p.text;
-  el('raw-ocr').hidden=!checked;
-  el('raw-ocr').open=false;
-  el('raw-transcript').textContent=checked?p.text:'';
-  el('copy').textContent=checked?'Copy checked excerpt and citation':'Copy transcript and citation';
+  el('transcript-label').textContent='Model transcription';
+  el('transcript').textContent='Reading the scan…';
+  el('copy').textContent='Copy transcription and citation';
+  el('copy').disabled=true;
+  currentText='';
   el('citation').textContent=cite(p);
   el('source').href=sourceURL(p.page);
   el('permalink').href='#'+new URLSearchParams({passage:p.id});
@@ -63,6 +62,13 @@ async function showCrop(p) {
   img.hidden=true;
   status.textContent='Loading original scan…';
   const [lccn,date,edition,sequence]=p.page.split('/');
+  const example=p.id==='sn83030272/1900-01-06/ed-1/seq-4/ID5-15';
+  if(example){
+    try {
+      const data=await fetch('ocr/results/williamsburg-v2.json').then(r=>r.json());
+      if(id===revision)setPassage(data.lines.map(line=>line.neural_ocr).join('\n'));
+    }catch{ /* Fall back to reading the source crop. */ }
+  }
   try{
     const batch=await xml(root+'batch_1.xml');
     const issue=[...batch.getElementsByTagNameNS('*','issue')].find(item=>
@@ -80,17 +86,35 @@ async function showCrop(p) {
     const region=[left,top,Math.min(1-left,x+w-left+.008),Math.min(1-top,y+h-top+.008)].map(n=>(n*100).toFixed(3)).join(',');
     const uri=iiif+path.slice(0,path.lastIndexOf('/')+1).replaceAll('/',':')+jpeg.slice(0,-4)+'/pct:'+region+'/700,/0/default.jpg';
     if(id!==revision)return;
-    img.onload=()=>{if(id===revision){img.hidden=false;status.textContent='Original scan cropped to the OCR block.';}};
+    img.onload=()=>{if(id===revision){img.hidden=false;status.textContent='Original newspaper scan.';}};
     img.onerror=()=>{if(id===revision)status.textContent='Scan unavailable here. Use the full-page source link.';};
     img.src=uri;
+    if(!example||!currentText){
+      const response=await fetch(uri);
+      if(!response.ok)throw Error('Scan unavailable');
+      const bitmap=await createImageBitmap(await response.blob());
+      try {
+        if(id!==revision)return;
+        const text=await transcribeCanvas(imageCanvas(bitmap));
+        if(id===revision)setPassage(text);
+      }finally{bitmap.close();}
+    }
   }catch{
-    if(id===revision)status.textContent='Scan unavailable here. Use the full-page source link.';
+    if(id===revision){
+      if(img.hidden)status.textContent='Scan unavailable here. Use the full-page source link.';
+      if(!currentText)setPassage('');
+    }
   }
+}
+function setPassage(text){
+  currentText=text;
+  el('transcript').textContent=text||'The model could not read this scan.';
+  el('copy').disabled=!text;
 }
 el('back').onclick=()=>fromResult?.focus();
 el('copy').onclick=async()=>{
   try{
-    await navigator.clipboard.writeText((checkedReadings.get(current.id)||current.text)+'\n\n'+cite(current)+'\n'+sourceURL(current.page));
+    await navigator.clipboard.writeText(currentText+'\n\n'+cite(current)+'\n'+sourceURL(current.page));
     el('copy-status').textContent='Copied transcript and citation.';
   }catch{el('copy-status').textContent='Clipboard unavailable. Select the transcript to copy it.';}
 };
@@ -109,14 +133,13 @@ worker.onmessage=({data})=>{
   }else if(data.type==='results'&&data.id===searchID){
     el('results').replaceChildren();
     el('hint').hidden=data.matches.length>0;
-    el('hint').textContent='Try a different name or enable OCR spelling tolerance.';
+    el('hint').textContent='Try a different name or enable spelling tolerance.';
     el('results-title').textContent=data.matches.length?data.matches.length+' top results':'No matching passages';
     for(const p of data.matches){
-      const row=document.createElement('li'), button=document.createElement('button'), excerpt=document.createElement('p');
+      const row=document.createElement('li'), button=document.createElement('button');
       button.textContent='Read passage · '+cite(p);
       button.onclick=()=>show(p,button);
-      excerpt.textContent=p.excerpt;
-      row.append(button,excerpt);
+      row.append(button);
       el('results').append(row);
     }
     el('status').textContent='Search completed in '+Math.round(data.ms)+' ms.';
