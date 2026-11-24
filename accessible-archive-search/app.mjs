@@ -4,6 +4,7 @@ const worker=new Worker('./worker.mjs',{type:'module'});
 const root='https://tile.loc.gov/storage-services/service/ndnp/nn/batch_nn_aristotle_ver01/data/';
 const iiif='https://tile.loc.gov/image-services/iiif/service:ndnp:nn:batch_nn_aristotle_ver01:data:';
 const manifests=new Map();
+const checkedReadings=new Map([['sn83030272/1900-01-06/ed-1/seq-4/ID5-15','The work of building a freight depot for the Delaware, Lackawanna and Western Railroad at the foot of Clymer street, Williamsburg, has been begun. The land purchased by the railroad contained an old factory and a number of other buildings. All these are being torn down.']]);
 let revision=0, searchID=0, current, fromResult, ready=false;
 const hashKey=()=>new URLSearchParams(location.hash.slice(1)).get('passage');
 el('transcript').tabIndex=0;
@@ -34,7 +35,13 @@ function show(p,origin) {
   el('back').hidden=!origin;
   el('detail-hint').hidden=true;
   el('passage').hidden=false;
-  el('transcript').textContent=p.text;
+  const checked=checkedReadings.get(p.id);
+  el('transcript-label').textContent=checked?'Manually checked excerpt':'Automatic OCR transcript';
+  el('transcript').textContent=checked||p.text;
+  el('raw-ocr').hidden=!checked;
+  el('raw-ocr').open=false;
+  el('raw-transcript').textContent=checked?p.text:'';
+  el('copy').textContent=checked?'Copy checked excerpt and citation':'Copy transcript and citation';
   el('citation').textContent=cite(p);
   el('source').href=sourceURL(p.page);
   el('permalink').href='#'+new URLSearchParams({passage:p.id});
@@ -83,7 +90,7 @@ async function showCrop(p) {
 el('back').onclick=()=>fromResult?.focus();
 el('copy').onclick=async()=>{
   try{
-    await navigator.clipboard.writeText(current.text+'\n\n'+cite(current)+'\n'+sourceURL(current.page));
+    await navigator.clipboard.writeText((checkedReadings.get(current.id)||current.text)+'\n\n'+cite(current)+'\n'+sourceURL(current.page));
     el('copy-status').textContent='Copied transcript and citation.';
   }catch{el('copy-status').textContent='Clipboard unavailable. Select the transcript to copy it.';}
 };

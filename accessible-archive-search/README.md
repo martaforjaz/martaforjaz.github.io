@@ -14,7 +14,7 @@ Choose **Try the Williamsburg example**. The tool searches the January 6, 1900 i
 
 - A Python importer streams the Library of Congress ALTO archive. It chooses the highest-confidence OCR token at each overlapping x position, groups up to 14 lines from each OCR block and stores their normalized bounding box. Page identity is the SQLite primary key. Each committed page is a checkpoint.
 - An atomic gzip snapshot publishes up to 40 passages per page. The static website builds a BM25 index in a Web Worker. Optional query expansion finds candidate OCR spellings with character trigrams and a bounded edit-distance or OCR-confusion check. Exact matches retain more weight.
-- The reader resolves the illustration through the issue METS manifest and requests a IIIF crop for the selected bounding box. Results and transcripts are keyboard navigable. The OCR transcript stays as published, so readers can see the uncertainty and consult the image before quoting.
+- The reader resolves the illustration through the issue METS manifest and requests a IIIF crop for the selected bounding box. Results and transcripts are keyboard navigable. Most passages display the automatic OCR. The Williamsburg demo also has a manually checked excerpt, with the original OCR available separately. The search index uses automatic OCR for both search modes.
 
 ## Evaluation
 
