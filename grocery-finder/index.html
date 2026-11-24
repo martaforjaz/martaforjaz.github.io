@@ -11,6 +11,6 @@
 <form id="barcode-form" class="controls"><label>Or enter a barcode <input id="barcode" type="text" inputmode="numeric" pattern="[0-9]{8,14}" required></label><button type="submit">Find barcode</button><span id="barcode-result" role="status"></span></form>
 <div class="query"><img id="query" width="120" height="120" alt="Query packaging" hidden><div><p role="status" id="status">Loading the catalog…</p><p id="ocr"></p><div id="query-credit"></div></div></div>
 <div class="results" id="columns"></div></section>
-<section><h2>Benchmark</h2><img class="chart" src="benchmark.png?v=300" alt="Top-one and top-three product retrieval results across image, OCR and image plus OCR"><p id="metrics"></p><p id="abstention"></p><p>Recorded queries use RapidOCR. Uploads run MobileNet and Tesseract in your browser, so the benchmark does not measure live-upload accuracy.</p></section>
+<section><h2>Benchmark</h2><img class="chart" src="benchmark.png?v=dot-300" alt="Paired dots show the percentage of 180 queries with the exact product in the top one or top three."><p id="metrics"></p><p id="abstention"></p><p>Recorded queries use RapidOCR. Uploads run MobileNet and Tesseract in your browser, so the benchmark does not measure live-upload accuracy.</p></section>
 <footer><a href="https://github.com/martaforjaz/grocery-product-finder">Source code and methods</a> · Data from <a href="https://world.openfoodfacts.org/">Open Food Facts</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/">Image licence</a></footer>
 </main></body></html>
