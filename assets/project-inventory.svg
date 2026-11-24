@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220" role="img" aria-label="Two requests compete for one inventory unit">
+<rect width="800" height="220" fill="#142d50"/>
+<path d="M240 72H310L354 110H379M240 148H310L354 110M476 110H508L555 72H592M508 110L555 148H592" fill="none" stroke="#88adbf" stroke-width="3"/>
+<g fill="#203e63" stroke="#b5dce0" stroke-width="2"><rect x="168" y="48" width="72" height="48" rx="8"/><rect x="168" y="124" width="72" height="48" rx="8"/></g>
+<path d="M184 65h39m-39 12h29m-29 64h39m-39 12h29" stroke="#b5dce0" stroke-width="3"/>
+<path d="m379 88 48-25 49 25v48l-49 25-48-25z" fill="#d6ad6d"/><path d="m379 88 48 25 49-25m-49 25v48m-24-86 48 26" fill="none" stroke="#142d50" stroke-width="3"/>
+<g fill="#203e63" stroke-width="2"><circle cx="616" cy="72" r="23" stroke="#a6dccf"/><circle cx="616" cy="148" r="23" stroke="#b9c9da"/></g>
+<path d="m606 72 7 7 13-15m-19 84h18" fill="none" stroke="#a6dccf" stroke-width="3" stroke-linecap="round"/>
+</svg>
