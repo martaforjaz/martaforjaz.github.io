@@ -1,0 +1,290 @@
+{
+  "pages": 2200,
+  "passages": 87838,
+  "known_passages": 14,
+  "queries": 13,
+  "bm25": {
+    "hit_at_10": 0.5384615384615384,
+    "known_passage_recall_at_10": 0.5714285714285714,
+    "mrr_at_10": 0.5,
+    "p95_ms": 0.69,
+    "ranks": [
+      {
+        "query": "Williamsburg",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-4/ID5-15",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Broadway",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-2/ID12-7",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Roosevelt",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-4/ID5-5",
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "query": "Brooklyn",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-12/ID4-7",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Staten Island ferryboats",
+        "date": "1900-01-03",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-03/ed-1/seq-7/ID16-11",
+            "rank": 1
+          },
+          {
+            "passage": "sn83030272/1900-01-03/ed-1/seq-7/ID16-10",
+            "rank": 3
+          }
+        ]
+      },
+      {
+        "query": "Brooklyn Democrats",
+        "date": "1900-01-01",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-01/ed-1/seq-2/ID22-4",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Manhattan Railway",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-20/ID4-4",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Vanderbilt",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-1/ID16-3",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Hotel Manhattan",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-10/ID13-1",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Fifth Avenue foreclosure",
+        "date": "1900-01-04",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-04/ed-1/seq-11/ID13-11",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Grand Central Station",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-10/ID36-13",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Harpers Bazar",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-7/ID12-1",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "British Columbia White Horse copper",
+        "date": "1900-01-15",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-15/ed-1/seq-1/ID19-8",
+            "rank": 1
+          }
+        ]
+      }
+    ]
+  },
+  "ocr_tolerant": {
+    "hit_at_10": 0.7692307692307693,
+    "known_passage_recall_at_10": 0.7857142857142857,
+    "mrr_at_10": 0.6623931623931624,
+    "p95_ms": 1.6,
+    "ranks": [
+      {
+        "query": "Williamsburg",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-4/ID5-15",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Broadway",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-2/ID12-7",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Roosevelt",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-4/ID5-5",
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "query": "Brooklyn",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-12/ID4-7",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Staten Island ferryboats",
+        "date": "1900-01-03",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-03/ed-1/seq-7/ID16-11",
+            "rank": 1
+          },
+          {
+            "passage": "sn83030272/1900-01-03/ed-1/seq-7/ID16-10",
+            "rank": 4
+          }
+        ]
+      },
+      {
+        "query": "Brooklyn Democrats",
+        "date": "1900-01-01",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-01/ed-1/seq-2/ID22-4",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Manhattan Railway",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-20/ID4-4",
+            "rank": 9
+          }
+        ]
+      },
+      {
+        "query": "Vanderbilt",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-1/ID16-3",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Hotel Manhattan",
+        "date": "1900-01-07",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-07/ed-1/seq-10/ID13-1",
+            "rank": 0
+          }
+        ]
+      },
+      {
+        "query": "Fifth Avenue foreclosure",
+        "date": "1900-01-04",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-04/ed-1/seq-11/ID13-11",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Grand Central Station",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-10/ID36-13",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "Harpers Bazar",
+        "date": "1900-01-06",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-06/ed-1/seq-7/ID12-1",
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "query": "British Columbia White Horse copper",
+        "date": "1900-01-15",
+        "matched": [
+          {
+            "passage": "sn83030272/1900-01-15/ed-1/seq-1/ID19-8",
+            "rank": 1
+          }
+        ]
+      }
+    ]
+  }
+}

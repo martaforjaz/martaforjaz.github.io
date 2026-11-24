@@ -6,6 +6,8 @@ An old manual can look perfectly readable on screen and still behave like a stac
 
 Open a PDF or try the built-in two-column document. Search for **snow**, press Tab to move from the results heading to the match, and press Enter to jump to the passage. The page preview highlights the source region. Use the headings list to move between sections or download the corrected transcript as plain text.
 
+[Accessible Archive Search](https://martaforjaz.github.io/accessible-archive-search/) applies the same source-verification workflow to indexed historical newspapers.
+
 ## How it works
 
 - PDF.js rasterizes one page at a time. Tesseract.js recognizes English text, bounding boxes and confidence scores in a worker.

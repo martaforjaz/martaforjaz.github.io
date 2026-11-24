@@ -1,0 +1,86 @@
+[
+  {
+    "query": "Williamsburg",
+    "date": "1900-01-06",
+    "passage": "sn83030272/1900-01-06/ed-1/seq-4/ID5-15",
+    "reason": "Rail work at the foot of Clymer Street. OCR prints Wllliamsburg."
+  },
+  {
+    "query": "Broadway",
+    "date": "1900-01-06",
+    "passage": "sn83030272/1900-01-06/ed-1/seq-2/ID12-7",
+    "reason": "A report about a strike at a building site. OCR prints Broadwav."
+  },
+  {
+    "query": "Roosevelt",
+    "date": "1900-01-07",
+    "passage": "sn83030272/1900-01-07/ed-1/seq-4/ID5-5",
+    "reason": "Political commentary on the governor. OCR includes Boosevelt."
+  },
+  {
+    "query": "Brooklyn",
+    "date": "1900-01-07",
+    "passage": "sn83030272/1900-01-07/ed-1/seq-12/ID4-7",
+    "reason": "A Sterling piano advertisement on Fulton Street. OCR prints BROOKIYN."
+  },
+  {
+    "query": "Staten Island ferryboats",
+    "date": "1900-01-03",
+    "passage": "sn83030272/1900-01-03/ed-1/seq-7/ID16-11",
+    "reason": "A report describing the Staten Island ferryboats."
+  },
+  {
+    "query": "Staten Island ferryboats",
+    "date": "1900-01-03",
+    "passage": "sn83030272/1900-01-03/ed-1/seq-7/ID16-10",
+    "reason": "Adjacent relevant passage on the same ferryboat story."
+  },
+  {
+    "query": "Brooklyn Democrats",
+    "date": "1900-01-01",
+    "passage": "sn83030272/1900-01-01/ed-1/seq-2/ID22-4",
+    "reason": "Political report about Hugh McLaughlin and Brooklyn Democrats. OCR reads Hrooklyn."
+  },
+  {
+    "query": "Manhattan Railway",
+    "date": "1900-01-07",
+    "passage": "sn83030272/1900-01-07/ed-1/seq-20/ID4-4",
+    "reason": "Market note discussing Manhattan Railway. OCR reads Manhattun."
+  },
+  {
+    "query": "Vanderbilt",
+    "date": "1900-01-07",
+    "passage": "sn83030272/1900-01-07/ed-1/seq-1/ID16-3",
+    "reason": "Article discussing Vanderbilt's interests. OCR reads Vanderbllt."
+  },
+  {
+    "query": "Hotel Manhattan",
+    "date": "1900-01-07",
+    "passage": "sn83030272/1900-01-07/ed-1/seq-10/ID13-1",
+    "reason": "A description of the hotel drawing room. OCR reads Hotnl Mnnhattan."
+  },
+  {
+    "query": "Fifth Avenue foreclosure",
+    "date": "1900-01-04",
+    "passage": "sn83030272/1900-01-04/ed-1/seq-11/ID13-11",
+    "reason": "Notice of a dwelling sold under foreclosure off Fifth Avenue."
+  },
+  {
+    "query": "Grand Central Station",
+    "date": "1900-01-06",
+    "passage": "sn83030272/1900-01-06/ed-1/seq-10/ID36-13",
+    "reason": "Rail advertisement mentioning Grand Central Station."
+  },
+  {
+    "query": "Harpers Bazar",
+    "date": "1900-01-06",
+    "passage": "sn83030272/1900-01-06/ed-1/seq-7/ID12-1",
+    "reason": "Advertisement for Harper's Bazar."
+  },
+  {
+    "query": "British Columbia White Horse copper",
+    "date": "1900-01-15",
+    "passage": "sn83030272/1900-01-15/ed-1/seq-1/ID19-8",
+    "reason": "Report on the White Horse copper transaction in British Columbia."
+  }
+]
