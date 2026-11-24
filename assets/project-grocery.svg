@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Grocery packaging evaluated by image and text search">
+<rect width="800" height="220" fill="#142d50"/>
+<g stroke-width="3" stroke-linejoin="round">
+<path d="M220 62h82v106h-82z" fill="#dcab63" stroke="#f5d49f"/>
+<path d="M235 82h52v24h-52z" fill="#142d50" stroke="#f5d49f"/>
+<path d="M240 138h43m-43 10h29" stroke="#503a2a"/>
+<path d="M335 105h55m-11-9 11 9-11 9" fill="none" stroke="#a8cce0"/>
+<rect x="421" y="68" width="168" height="86" rx="9" fill="#24486c" stroke="#a8cce0"/>
+<path d="M442 90h71m-71 18h103m-103 18h54" stroke="#9fc5dc"/>
+<path d="m548 120 9 9 17-21" fill="none" stroke="#a3dfcb"/>
+</g></svg>

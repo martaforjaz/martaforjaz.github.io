@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grocery Product Finder</title><link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@6.0.1/dist/tesseract.min.js"></script>
+<script defer src="demo.js"></script></head>
+<body><main><a class="back" href="https://martaforjaz.github.io/#grocery-finder">Marta Forjaz · Portfolio</a>
+<header><h1>Grocery Product Finder</h1><p>Find the exact variant from a photo of the packaging.</p></header>
+<section><h2>Search the catalog</h2><div class="controls"><label>Upload a package photo <input id="upload" type="file" accept="image/*" disabled></label>
+<label>Recorded test case <select id="example" disabled></select></label></div>
+<div class="query"><img id="query" width="120" height="120" alt="Query packaging" hidden><div><p role="status" id="status">Loading the catalog…</p><p id="ocr"></p><div id="query-credit"></div></div></div>
+<div class="results" id="columns"></div></section>
+<section><h2>Benchmark</h2><img class="chart" src="benchmark.png" alt="Top-one and top-three product retrieval results across image, OCR and image plus OCR"><p id="metrics"></p><p id="abstention"></p><p>Recorded queries use RapidOCR. Uploads run MobileNet and Tesseract in your browser, so the benchmark does not measure live-upload accuracy.</p></section>
+<footer><a href="https://github.com/martaforjaz/grocery-product-finder">Source code and methods</a> · Data from <a href="https://world.openfoodfacts.org/">Open Food Facts</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/">Image licence</a></footer>
+</main></body></html>
