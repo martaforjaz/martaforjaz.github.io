@@ -85,7 +85,8 @@ try {
   await shot('frame-3');
   await hold(4);
   await key('Tab');await key('Enter');
-  await until('document.activeElement.id==="passage-title" && /clymcr/i.test(document.querySelector("#transcript").textContent)');
+  await until('document.activeElement.id==="passage-title" && /clymer/i.test(document.querySelector("#transcript").textContent)');
+  await until('document.querySelector("#transcript-label").textContent==="Manually checked excerpt" && /wllliamsburg/i.test(document.querySelector("#raw-transcript").textContent)');
   await until('!document.querySelector("#crop").hidden && document.querySelector("#crop").naturalWidth>0');
   await js('document.querySelector("#detail").scrollIntoView({block:"start"})');
   await shot('frame-4');
@@ -99,7 +100,7 @@ try {
   await hold(4);
   const deepLink=await js('document.querySelector("#permalink").href');
   await command('Page.navigate',{url:deepLink});
-  await until('/clymcr/i.test(document.querySelector("#transcript")?.textContent||"")',150);
+  await until('/clymer/i.test(document.querySelector("#transcript")?.textContent||"")',150);
   console.log('Exact miss, OCR recovery, image crop, keyboard focus, copy and permalink verified.');
 } finally {
   socket?.close();
