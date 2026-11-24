@@ -1,10 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220">
-  <rect width="800" height="220" fill="#142d50"/>
-  <path d="M295 156c-14-11-65-43-65-77 0-31 38-44 65-13 27-31 65-18 65 13 0 34-51 66-65 77Z" fill="#244568" stroke="#e4b1c7" stroke-width="3"/>
-  <path d="M247 103h22l9-13 13 25 12-19 7 7h32" fill="none" stroke="#e4b1c7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M432 60v97h140" fill="none" stroke="#97bece" stroke-width="2" stroke-linecap="round"/>
-  <path d="M439 69h27v14h34v14h33v17h32" fill="none" stroke="#89d6c4" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M439 69h13v24h28v18h36v21h49" fill="none" stroke="#e4b1c7" stroke-width="3" stroke-linejoin="round"/>
-  <circle cx="184" cy="150" r="3" fill="#97bece"/>
-  <circle cx="623" cy="72" r="3" fill="#e4b1c7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Cardiac signal, phenotype clusters and survival curves">
+<rect width="800" height="220" fill="#142d50"/>
+<g fill="#203f63" stroke="#8daeca" stroke-width="2"><rect x="63" y="42" width="184" height="136" rx="11"/><rect x="306" y="42" width="184" height="136" rx="11"/><rect x="550" y="42" width="184" height="136" rx="11"/></g>
+<path d="M155 146s-45-23-45-50c0-19 25-27 45-4 21-23 46-15 46 4 0 27-46 50-46 50Z" fill="#984e66" stroke="#f3a5ae" stroke-width="2"/>
+<path d="M84 114h43l10-12 11 24 13-37 11 25h54" fill="none" stroke="#f5c791" stroke-width="3" stroke-linejoin="round"/>
+<path d="M260 110h31m-8-6 8 6-8 6m220-6h31m-8-6 8 6-8 6M574 65v88h137M331 65v88h135" fill="none" stroke="#a2c1da" stroke-width="2"/>
+<g fill="#84cabe"><circle cx="350" cy="113" r="5"/><circle cx="361" cy="104" r="5"/><circle cx="372" cy="116" r="5"/><circle cx="350" cy="124" r="4"/></g>
+<g fill="#f3ba7a"><circle cx="396" cy="81" r="5"/><circle cx="409" cy="76" r="5"/><circle cx="414" cy="92" r="4"/><circle cx="398" cy="94" r="4"/></g>
+<g fill="#e0a1b8"><circle cx="432" cy="126" r="5"/><circle cx="443" cy="135" r="5"/><circle cx="454" cy="123" r="4"/><circle cx="443" cy="117" r="4"/></g>
+<path d="M575 73h29v7h29v8h26v9h25v5h24M575 73h24v15h23v10h28v13h23v7h35m-133-45h18v18h20v14h20v13h22v13h21v7h32" fill="none" stroke-width="3"/>
+<path d="M575 73h29v7h29v8h26v9h25v5h24" fill="none" stroke="#84cabe" stroke-width="3"/><path d="M575 73h24v15h23v10h28v13h23v7h35" fill="none" stroke="#f3ba7a" stroke-width="3"/><path d="M575 73h18v18h20v14h20v13h22v13h21v7h32" fill="none" stroke="#e0a1b8" stroke-width="3"/>
 </svg>

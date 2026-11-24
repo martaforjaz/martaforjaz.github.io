@@ -1,6 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Image retrieval clusters and search lens">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Product image, embedding vector and ranked catalog views">
 <rect width="800" height="220" fill="#142d50"/>
-<g fill="#234a6e" stroke="#a7c4dd" stroke-width="3"><rect x="205" y="57" width="126" height="104" rx="10"/><path d="m221 143 31-39 22 21 14-14 27 32z"/><circle cx="297" cy="85" r="9"/><circle cx="409" cy="105" r="41"/><path d="m439 135 34 34" stroke-width="8" stroke-linecap="round"/></g>
-<g fill="#f1ba75"><circle cx="401" cy="94" r="5"/><circle cx="419" cy="104" r="5"/><circle cx="404" cy="118" r="5"/></g>
-<g fill="#a7c4dd"><circle cx="535" cy="73" r="7"/><circle cx="563" cy="86" r="7"/><circle cx="545" cy="102" r="7"/><circle cx="580" cy="136" r="7"/><circle cx="601" cy="148" r="7"/><circle cx="566" cy="158" r="7"/></g>
+<g fill="#203f63" stroke="#9fc4db" stroke-width="2">
+<rect x="89" y="47" width="138" height="126" rx="11"/><rect x="99" y="57" width="118" height="106" rx="7" fill="#284c71"/>
+<rect x="325" y="57" width="120" height="106" rx="10"/>
+<rect x="551" y="31" width="148" height="45" rx="7"/><rect x="551" y="88" width="148" height="45" rx="7"/><rect x="551" y="145" width="148" height="45" rx="7"/>
+</g>
+<g fill="#ddb173" stroke="#f4d7a7" stroke-width="2"><rect x="132" y="70" width="49" height="78" rx="8"/><rect x="565" y="39" width="16" height="29" rx="4"/></g>
+<g fill="#142d50" stroke="#8e6542" stroke-width="2"><circle cx="156" cy="92" r="9"/><circle cx="156" cy="123" r="15"/></g>
+<path d="M242 110h66m-10-7 10 7-10 7m166-7h70m-10-7 10 7-10 7" fill="none" stroke="#b9d9e8" stroke-width="3"/>
+<g fill="#8ddaca"><rect x="346" y="106" width="8" height="31"/><rect x="360" y="85" width="8" height="52"/><rect x="374" y="117" width="8" height="20"/><rect x="388" y="76" width="8" height="61"/><rect x="402" y="94" width="8" height="43"/><rect x="416" y="113" width="8" height="24"/></g>
+<rect x="565" y="96" width="16" height="29" rx="4" fill="#adc8ea"/><rect x="565" y="153" width="16" height="29" rx="4" fill="#8ddaca"/>
+<path d="M596 49h68m-68 10h49m-49 47h57m-57 10h39m-39 47h45m-45 10h31" stroke="#a9c8df" stroke-width="3" stroke-linecap="round"/>
+<path d="m675 53 5 5 9-12" fill="none" stroke="#8ddaca" stroke-width="3"/>
 </svg>
