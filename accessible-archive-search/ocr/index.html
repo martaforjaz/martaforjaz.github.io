@@ -4,21 +4,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neural OCR evaluation · Accessible Archive Search</title>
 <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="ocr.css">
 <main>
 <p><a href="../">Back to Accessible Archive Search</a></p>
 <section class="hero">
 <h1>Can a neural model read the scan better?</h1>
-<p>I trained a CNN and bidirectional GRU with CTC on 3,000 labeled newspaper lines and compared its output with the archived OCR.</p>
+<p>Compare what the model reads with a transcription checked against the original newspaper.</p>
 </section>
-<section class="panel">
-<h2>Williamsburg pilot</h2>
-<p>On ten manually cropped and transcribed lines, character error fell from <strong>24.3% to 5.4%</strong>. Word error fell from <strong>58.8% to 25.0%</strong>.</p>
-<p>The neural model recovered “Clymer” and “Western Railroad”, but still misspelled Williamsburg.</p>
-<p><a href="results/williamsburg-pilot.json">See every line and both OCR outputs</a></p>
-<h2>Separate public test set</h2>
-<p>On 240 lines from ten unseen pages, the model reached <strong>12.4% character error</strong>, with 111 lines transcribed exactly. The dataset publisher describes its references as model-verified.</p>
-<p>This pilot measures recognition on line images. Full-page layout and changes in search quality still need evaluation. The live search index continues to use archived OCR.</p>
-<p><a href="results/metrics.json">Training and test metrics</a> · <a href="https://github.com/martaforjaz/martaforjaz.github.io/tree/main/accessible-archive-search/ocr">Training code and reproduction instructions</a></p>
+<section class="panel" aria-labelledby="benchmark">
+<h2 id="benchmark">OCR evaluation</h2>
+<div id="scores" class="score-grid"></div>
+<p>Character error rate is an edit distance divided by the number of reference characters. The public test and the hand-transcribed editions use different references and are reported separately. The tests score cropped lines. The live search continues to use archival OCR.</p>
 </section>
+<section class="panel" aria-labelledby="compare">
+<h2 id="compare">Read the same line three ways</h2>
+<div class="selectors">
+<label>Edition <select id="issue" disabled></select></label>
+<label>Line <select id="line" disabled></select></label>
+</div>
+<div class="reading" id="reading" aria-live="polite">
+<figure><img id="scan" alt="Selected newspaper line from the original scan"><figcaption><a id="source">Open the original newspaper page</a></figcaption></figure>
+<dl id="comparison"></dl>
+</div>
+<p id="status" role="status">Loading line comparisons...</p>
+</section>
+<section class="panel" id="demo"><h2>Watch the OCR comparison</h2>
+<video controls playsinline preload="metadata" src="ocr-demo.mp4" poster="ocr-demo.png">
+<track kind="captions" src="ocr-demo.vtt" srclang="en" label="English" default>
+<a href="ocr-demo.mp4">Download the OCR demo</a></video>
+</section>
+<p><a href="results/metrics-v2.json">Training and test metrics</a> · <a href="results/the-sun-evaluation.json">Independent line results</a> · <a href="https://github.com/martaforjaz/martaforjaz.github.io/tree/main/accessible-archive-search/ocr">Training code</a></p>
 </main>
+<script type="module" src="demo.mjs"></script>
 </html>

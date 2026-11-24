@@ -1,0 +1,486 @@
+{
+  "overall": {
+    "initial": {
+      "cer": 0.09486999297259312,
+      "wer": 0.2764227642276423,
+      "exact": 7,
+      "lines": 36
+    },
+    "expanded": {
+      "cer": 0.07308503162333099,
+      "wer": 0.1910569105691057,
+      "exact": 15,
+      "lines": 36
+    }
+  },
+  "lines": [
+    {
+      "issue": "1900-01-03",
+      "line": 1,
+      "reference": "SHELLED A RUNAWAY TRAIN.",
+      "box": [
+        16,
+        19,
+        365,
+        46
+      ],
+      "initial": "k\"\"m2 “ —N.f\"\" mat.",
+      "expanded": "tn dA SA\"r R."
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 2,
+      "reference": "British Gunners Destroyed It to Keep the",
+      "box": [
+        16,
+        46,
+        365,
+        64
+      ],
+      "initial": "iritish Gunners Beatroyed It to Eeep the",
+      "expanded": "British Gunners neatroyed It to Keep the"
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 3,
+      "reference": "Supplies From the Boers.",
+      "box": [
+        16,
+        64,
+        365,
+        82
+      ],
+      "initial": "Supplies From the ioers.",
+      "expanded": "Sunpiies From the Bners."
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 4,
+      "reference": "Special Cable Despatch to THE SUN.",
+      "box": [
+        16,
+        82,
+        365,
+        101
+      ],
+      "initial": "spear cab:s osaleh se rur se.",
+      "expanded": "Spra caOle DSSraieA fe Tur ses."
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 5,
+      "reference": "RENSBURG, Cape Colony, Jan. 2.—A train",
+      "box": [
+        16,
+        101,
+        365,
+        119
+      ],
+      "initial": "RENsnen, Cape Colony. Jan. 2—A train",
+      "expanded": "RENsnvn, Cape Colony, Jan. 2—A train"
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 6,
+      "reference": "containing supplies, to which no en-",
+      "box": [
+        16,
+        119,
+        365,
+        137
+      ],
+      "initial": "containing supplles. to which no en-",
+      "expanded": "containing supplies, to which no en-"
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 7,
+      "reference": "gine was attached, started moving with-",
+      "box": [
+        16,
+        137,
+        365,
+        154
+      ],
+      "initial": "gine was attaehed, started moving with-",
+      "expanded": "gine was attached, started moving with-"
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 8,
+      "reference": "in the British lines to-day and ran down",
+      "box": [
+        16,
+        154,
+        365,
+        172
+      ],
+      "initial": "in the British lines to-day and ran down",
+      "expanded": "in the British lines to-day and ran down"
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 9,
+      "reference": "an incline toward the Boer lines. It",
+      "box": [
+        16,
+        172,
+        365,
+        189
+      ],
+      "initial": "an ineline toward the Boer lines. It",
+      "expanded": "an incline toward the Boer lines. It"
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 10,
+      "reference": "was found that the train could not be stopped,",
+      "box": [
+        16,
+        189,
+        365,
+        208
+      ],
+      "initial": "was found that the train could not be stopred.",
+      "expanded": "was found thatthe train could not be stopred."
+    },
+    {
+      "issue": "1900-01-03",
+      "line": 11,
+      "reference": "and the British gunners were, therefore, or-",
+      "box": [
+        16,
+        208,
+        365,
+        224
+      ],
+      "initial": "and the British gunners were, therefore, or-",
+      "expanded": "and the British gunners were, therefore, or-"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 1,
+      "reference": "Special Cable Despatch to THE SUN.",
+      "box": [
+        21,
+        0,
+        362,
+        20
+      ],
+      "initial": "sl camls f\"oraid “ ra sv.",
+      "expanded": "mei Cobis Paaleh f TH ses."
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 2,
+      "reference": "LONDON, Jan. 6.—The week's news from the",
+      "box": [
+        21,
+        20,
+        362,
+        39
+      ],
+      "initial": "Lomov, Jan. 0.—The week's news from the",
+      "expanded": "Lespos, Jan. 6.—The week's news from the"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 3,
+      "reference": "front has mainly dealt with the successes of",
+      "box": [
+        21,
+        39,
+        362,
+        57
+      ],
+      "initial": "tront has mainly dealt with the successes of",
+      "expanded": "font has mainly deait with the successes of"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 4,
+      "reference": "Col. Pilcher at Sunnyside and Gen. French",
+      "box": [
+        21,
+        57,
+        362,
+        74
+      ],
+      "initial": "Co. Pleher at Sunnyside and Gen. French",
+      "expanded": "cot Piieher at Sunnyside and Gen. French"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 5,
+      "reference": "around Colesberg. These were at first hailed",
+      "box": [
+        21,
+        74,
+        362,
+        92
+      ],
+      "initial": "aroun t Colesberg. These were at first hailed",
+      "expanded": "around Colesberg. These were at first hailed"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 6,
+      "reference": "as important victories, but are now seen in a",
+      "box": [
+        21,
+        92,
+        362,
+        109
+      ],
+      "initial": "ss important vletories, but are now seen in a",
+      "expanded": "as important victories, but are now seen in a"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 7,
+      "reference": "truer light. Col. Pilcher's opponents were",
+      "box": [
+        21,
+        109,
+        362,
+        127
+      ],
+      "initial": "truor tight. Col. Pilcher's ooponents were",
+      "expanded": "truer tight. Col. Pilcher's onponents were"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 8,
+      "reference": "entirely Colonial rebels, and, though by the",
+      "box": [
+        21,
+        127,
+        362,
+        145
+      ],
+      "initial": "entireby Colonlal rebels, and. though by the",
+      "expanded": "entirely Colonial rebels, and, though by the"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 9,
+      "reference": "temporary occupation of Douglas, he reaped the",
+      "box": [
+        21,
+        145,
+        362,
+        163
+      ],
+      "initial": "semporary oceupation of Douglas, he reaped the",
+      "expanded": "temporary oceupation of Douglas, he reaped the"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 10,
+      "reference": "fruits of his victory, the whole campaign was",
+      "box": [
+        21,
+        163,
+        362,
+        179
+      ],
+      "initial": "ruis of hls vietory, the whole camraign was",
+      "expanded": "ruits of his victory, the whole camraign was"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 11,
+      "reference": "of no great importance, as the possession of the",
+      "box": [
+        21,
+        179,
+        362,
+        197
+      ],
+      "initial": "o no great importance, as the possesslon of the",
+      "expanded": "et no great importance, as the possession of the"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 12,
+      "reference": "triangle of territory between the railway and",
+      "box": [
+        21,
+        197,
+        362,
+        215
+      ],
+      "initial": "triancleot territory between the railway and",
+      "expanded": "triange oft territory between the railway and"
+    },
+    {
+      "issue": "1900-01-07",
+      "line": 13,
+      "reference": "the Riet and Orange rivers depends ultimately",
+      "box": [
+        21,
+        215,
+        362,
+        232
+      ],
+      "initial": "the miet and orange rivers denends ultimately",
+      "expanded": "the Piet and Orange rivers derends ultimately"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 1,
+      "reference": "batants were only an arm's length away. In",
+      "box": [
+        29,
+        5,
+        374,
+        22
+      ],
+      "initial": "barants were only an arm's length away. In",
+      "expanded": "batants were only an arm's length away. In"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 2,
+      "reference": "fact, it was a hand-to-hand encounter. In the",
+      "box": [
+        29,
+        22,
+        374,
+        40
+      ],
+      "initial": "fact it was a hand-to-hand encounter. In the",
+      "expanded": "fact, it was a hand-to-hand encounter. In the"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 3,
+      "reference": "gray dawn the men on both sides fought like",
+      "box": [
+        29,
+        40,
+        374,
+        60
+      ],
+      "initial": "gray dawn the men on both sides fought like",
+      "expanded": "gray dawn the men on both sides fought like"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 4,
+      "reference": "demons.",
+      "box": [
+        29,
+        60,
+        374,
+        76
+      ],
+      "initial": "demons.",
+      "expanded": "demons."
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 5,
+      "reference": "The horror and bewilderment of the scene",
+      "box": [
+        29,
+        76,
+        374,
+        94
+      ],
+      "initial": "The horror and bewilderment of the scene",
+      "expanded": "Thehorror and bewilderment of the scene"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 6,
+      "reference": "presented a picture without parallel in the ex-",
+      "box": [
+        29,
+        94,
+        374,
+        113
+      ],
+      "initial": "rresentod a pleture without parallel in the ev-",
+      "expanded": "nresentod a pieture without parallel in the ex-"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 7,
+      "reference": "perience of those taking part in it.",
+      "box": [
+        29,
+        113,
+        374,
+        131
+      ],
+      "initial": "perience of those taking part in it.",
+      "expanded": "rerience of those taking part in it."
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 8,
+      "reference": "FRERE CAMP, Jan. 11.—A heliogram from",
+      "box": [
+        29,
+        131,
+        374,
+        148
+      ],
+      "initial": "FREwg CAMP. Jan. 11.—A hellogram from",
+      "expanded": "FREne CAMT. Jan. 11.—A heliogram from"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 9,
+      "reference": "Ladysmith says there have been no further",
+      "box": [
+        29,
+        148,
+        374,
+        166
+      ],
+      "initial": "Ladysmith says there have been no further",
+      "expanded": "Ladysmith says there have been no further"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 10,
+      "reference": "Boer movements. The outposts had a slight",
+      "box": [
+        29,
+        166,
+        374,
+        184
+      ],
+      "initial": "Boer movements. The outposts had a sllgh",
+      "expanded": "Boer movements. The outposts had a slight"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 11,
+      "reference": "brush early on Thursday morning. The",
+      "box": [
+        29,
+        184,
+        374,
+        203
+      ],
+      "initial": "bruh early on Thursdavy morning. The",
+      "expanded": "brush early on Thursday morning. The"
+    },
+    {
+      "issue": "1900-01-15",
+      "line": 12,
+      "reference": "rations of the garrison have been increased.",
+      "box": [
+        29,
+        203,
+        374,
+        220
+      ],
+      "initial": "rariouns of the garrison have been inereased.",
+      "expanded": "rations of the garrison have been inereased."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "lines": [
+    {
+      "reference": "The work of building a freight depot for the",
+      "archived_ocr": "Thn fIu work or of building a freight depot for the",
+      "neural_ocr": "The work of building a freight depot for the"
+    },
+    {
+      "reference": "Delaware, Lackawanna and Western Railroad",
+      "archived_ocr": "1 Delaware Laokawnnna and Western Itallroad",
+      "neural_ocr": "Delaware, Lackawanna and Western Railroad"
+    },
+    {
+      "reference": "at the foot of Clymer street, Williamsburg, has",
+      "archived_ocr": "nt thu foot ot Clymcr street Wllliamsburg has",
+      "neural_ocr": "at the foot of Clymer street, Willtamsburg, has"
+    },
+    {
+      "reference": "been begun. The land purchased by the rail-",
+      "archived_ocr": "been begun The hc land purchased by the rail ¬",
+      "neural_ocr": "been begun. The land purchased by the raul-"
+    },
+    {
+      "reference": "road contained an old factory and a number of",
+      "archived_ocr": "I road contained nn old > 11 factory and a number of",
+      "neural_ocr": "road contained an old factory and a number of"
+    },
+    {
+      "reference": "other buildings. All these are being torn",
+      "archived_ocr": "other buildings All these are being torn",
+      "neural_ocr": "other buildings. All these are being torn"
+    },
+    {
+      "reference": "down. Connected with the factory is a brick",
+      "archived_ocr": "V down Connected with the factory Is n brick",
+      "neural_ocr": "down. Conneeted with the factory is a briek"
+    },
+    {
+      "reference": "chimney 165 feet high, which for thirty years",
+      "archived_ocr": "chimney ItUileet lii lOst high nhloh hlch for thirty year",
+      "neural_ocr": "ehimney Itgo teet high, w hich for thirty years"
+    },
+    {
+      "reference": "has been a landmark and an objective for pilots",
+      "archived_ocr": "hu hn been a landmark and nn objective for pilots",
+      "neural_ocr": "has been a landmart and an obieetivs for pdots"
+    },
+    {
+      "reference": "on East River boats. The razing of this chim-",
+      "archived_ocr": "on East at Illver boats Thorozlngof thi ho r7lnl razIng 01 this chins ¬",
+      "neural_ocr": "on East River boats. The razing of this chim-"
+    }
+  ],
+  "reference_characters": 441,
+  "reference_words": 80,
+  "archived_ocr": {
+    "cer": 0.24263038548752835,
+    "wer": 0.5875
+  },
+  "neural_ocr": {
+    "cer": 0.03854875283446712,
+    "wer": 0.15
+  }
+}

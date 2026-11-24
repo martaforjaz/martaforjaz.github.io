@@ -12,6 +12,7 @@ from PIL import Image
 import pyarrow.parquet as pq
 import torch
 from torch import nn
+import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
 HEIGHT, WIDTH = 32, 640
@@ -102,6 +103,9 @@ def main(args):
     data=Path(args.data)
     train, val, test = [load(data/f"{split}.parquet", n, seed) for split,n,seed in
                         [("train",args.lines,17),("val",200,18),("test",240,19)]]
+    extra = data / "train-extra.parquet"
+    if args.extra_lines:
+        train.extend(load(extra,args.extra_lines,23))
     pages = [set(row[3] for row in rows) for rows in (train,val,test)]
     if any(pages[i]&pages[j] for i,j in ((0,1),(0,2),(1,2))):
         raise ValueError("Page identifiers overlap across splits")
@@ -110,6 +114,7 @@ def main(args):
     batches=lambda samples,shuffle=False:DataLoader(samples,batch_size=32,shuffle=shuffle,collate_fn=collate)
     model=Recognizer(len(alphabet)+1).to(device)
     optimizer=torch.optim.AdamW(model.parameters(),lr=.003)
+    schedule=torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,T_max=args.epochs,eta_min=.00015)
     ctc=nn.CTCLoss(blank=0,zero_infinity=True)
     out=Path(args.output)
     out.mkdir(parents=True,exist_ok=True)
@@ -125,12 +130,25 @@ def main(args):
             targets=torch.tensor([label_ids.get(char,len(alphabet)) for label in labels for char in label])
             sizes=torch.tensor([len(label) for label in labels])
             optimizer.zero_grad(set_to_none=True)
-            logits=model(images.to(device).float().div(127.5).sub(1))
+            inputs=images.to(device).float().div(127.5).sub(1)
+            if args.augment:
+                count=len(images)
+                affine=torch.zeros((count,2,3),device=device)
+                affine[:,0,0]=1
+                affine[:,1,1]=1
+                affine[:,1,0]=torch.rand(count,device=device)*.07-.035
+                affine[:,1,2]=torch.rand(count,device=device)*.10-.05
+                grid=F.affine_grid(affine,inputs.shape,align_corners=False)
+                inputs=F.grid_sample(inputs,grid,align_corners=False,padding_mode="border")
+                inputs=(inputs*(.72+.28*torch.rand((count,1,1,1),device=device))
+                        +.025*torch.randn_like(inputs)).clamp(-1,1)
+            logits=model(inputs)
             loss=ctc(logits.log_softmax(2).transpose(0,1),targets,lengths,sizes)
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(),5)
             optimizer.step()
             losses.append(loss.item())
+        schedule.step()
         validation,_=score(model,batches(val),alphabet,device)
         row={"epoch":epoch,"ctc_loss":sum(losses)/len(losses),"validation":validation}
         history.append(row)
@@ -152,4 +170,6 @@ if __name__=="__main__":
     parser.add_argument("--output",default="results")
     parser.add_argument("--lines",type=int,default=3000)
     parser.add_argument("--epochs",type=int,default=12)
+    parser.add_argument("--extra-lines",type=int,default=0)
+    parser.add_argument("--augment",action="store_true")
     main(parser.parse_args())

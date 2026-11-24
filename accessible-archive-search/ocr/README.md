@@ -1,7 +1,33 @@
-# Newspaper line OCR pilot
+# Newspaper line OCR
 
-A CNN and bidirectional GRU trained with CTC on public English-language newspaper line crops from [Newspaper OCR Gold](https://huggingface.co/datasets/NealCaren/newspaper-ocr-gold). The dataset publisher describes the transcriptions as model-verified. Training used the first train parquet shard, with separate validation and test shards. The script verifies that page IDs do not overlap across the sampled splits.
+[Open the interactive comparison](https://martaforjaz.github.io/accessible-archive-search/ocr/) · [Watch the captioned walkthrough](https://martaforjaz.github.io/accessible-archive-search/ocr/#demo)
 
-Download one parquet file for each split using the dataset's parquet listing and name them `data/train.parquet`, `data/val.parquet`, and `data/test.parquet`. Install PyTorch, Pillow, NumPy and PyArrow, then run `python train.py --epochs 16`. The selected checkpoint minimizes validation character error rate.
+This CNN and bidirectional GRU uses CTC to recognize text from cropped newspaper lines. The expanded run uses material from both public training shards, geometric and photometric augmentation, and a cosine learning-rate schedule. The checkpoint is selected by character error rate on the **public validation split**. Page IDs are disjoint across training, validation and test.
 
-`results/williamsburg-pilot.json` compares the archive ALTO and the neural model on ten lines from a separately supplied Williamsburg screenshot with manually checked references. Run `python pilot.py PATH_TO_700x442_SCREENSHOT` after saving the [original ALTO](https://tile.loc.gov/storage-services/service/ndnp/nn/batch_nn_aristotle_ver01/data/sn83030272/100479618/1900010601/0069.xml) to `data/williamsburg-alto.xml`. The neural model is applied to manually cropped lines, so this pilot isolates text recognition. It does not compare automatic page layout extraction or retrieval. The Williamsburg lines were not included in the training inputs.
+## Results
+
+- Public test, 240 lines: character error 12.4% → 8.9%; word error 22.4% → 17.2%; 111 → 147 exact lines.
+- Three independent issues of The Sun, 36 lines: character error 9.5% → 7.3%; word error 27.6% → 19.1%; 7 → 15 exact lines.
+- Williamsburg, ten lines: 24.3% archived OCR, 5.4% first model, 3.9% expanded model character error.
+
+The expanded run used 11,000 training lines from 80 pages. Epoch 18 of 24 had the lowest public validation character error.
+
+## Reproduce the training
+
+Install PyTorch, Pillow, NumPy and PyArrow. Download the first and second train parquet shards of [Newspaper OCR Gold](https://huggingface.co/datasets/NealCaren/newspaper-ocr-gold) to `data/train.parquet` and `data/train-extra.parquet`. Save the validation and test shards as `data/val.parquet` and `data/test.parquet`. The dataset publisher describes the references as model-verified.
+
+```sh
+python train.py --lines 5500 --extra-lines 5500 --epochs 24 --augment --output results-v2
+```
+
+The original checkpoint can be rebuilt using [the original training script](https://github.com/martaforjaz/martaforjaz.github.io/blob/96fdba7/accessible-archive-search/ocr/train.py) with `--epochs 16`, the first training shard and the same validation and test files.
+
+## Independent archive checks
+
+[Ground truth](ground-truth/ground-truth.json) contains 36 line-by-line transcriptions from three issues of *The Sun*. None of those page IDs or the separate Williamsburg page ID occurs in either public training shard. Line boundaries are specified in the evaluation script.
+
+```sh
+python evaluate_issues.py --samples ground-truth
+```
+
+The [Williamsburg comparison](results/williamsburg-v2.json) uses ten checked reference lines and the [archived ALTO](https://tile.loc.gov/storage-services/service/ndnp/nn/batch_nn_aristotle_ver01/data/sn83030272/100479618/1900010601/0069.xml) from *The Sun*. Source scans are from the Library of Congress, [Chronicling America](https://www.loc.gov/collections/chronicling-america/). Character and word error rates measure edit distance against the reference. The evaluation uses cropped lines and leaves page segmentation and search ranking outside its scope.

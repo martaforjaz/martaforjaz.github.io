@@ -1,0 +1,6 @@
+.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem}
+.score-grid div{background:#eef3f9;border-radius:10px;padding:1rem}
+.score-grid strong{display:block;font-size:1.6rem}
+.selectors{display:flex;flex-wrap:wrap;gap:1rem}.selectors select{font:inherit;padding:.35rem}
+.reading img{display:block;width:min(100%,690px);max-height:130px;object-fit:contain;object-position:left;image-rendering:auto}
+dl{margin:0}dt{font-weight:700}dd{margin:0 0 .75rem;padding:.55rem .8rem;background:#f0f5fa;border-radius:6px}

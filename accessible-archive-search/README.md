@@ -40,8 +40,10 @@ Open the URL reported by the server. The initial archive download is about 36 MB
 
 Source: Library of Congress, [Chronicling America: Historic American Newspapers](https://www.loc.gov/collections/chronicling-america/) and [collection rights information](https://www.loc.gov/collections/chronicling-america/about-this-collection/rights-and-access/). Historical text may contain outdated or offensive terminology.
 
-## Neural OCR pilot
+## Neural OCR evaluation
 
-A CNN and bidirectional GRU trained with CTC on 3,000 labeled lines reduced character error from **24.3% to 5.4%** on ten manually cropped lines from the Williamsburg scan. Word error fell from **58.8% to 25.0%**. On a separate public test of 240 lines from ten unseen pages, it reached **12.4% character error** and transcribed 111 lines exactly. The pilot isolates line recognition. Full-page layout and retrieval gains remain unmeasured, and the live index uses archived OCR.
+The expanded CNN and bidirectional GRU was trained on **11,000 lines from 80 pages**. Training ran for 24 epochs, with epoch 18 selected on public validation data. On the same public test of 240 lines from ten held-out pages, character error fell from **12.4% to 8.9%** and exact lines increased from **111 to 147**. On 36 independently transcribed lines from three issues of *The Sun*, character error fell from **9.5% to 7.3%**, and exact lines increased from **7 to 15**. On the separate Williamsburg example, character error was **24.3%** for the archived OCR, **5.4%** for the first neural model and **3.9%** for the expanded model.
 
-[Evaluation and reproduction instructions](ocr/README.md) · [Line-by-line results](ocr/results/williamsburg-pilot.json)
+The new demo lets you select a newspaper edition and line and verify the outputs against the scan. These are line-level results. Retrieval and full-page segmentation remain outside the evaluation. The live archive search uses archival OCR.
+
+[Interactive demo and video](https://martaforjaz.github.io/accessible-archive-search/ocr/) · [Code and reproduction instructions](ocr/README.md) · [Ground-truth transcriptions](ocr/ground-truth/ground-truth.json)

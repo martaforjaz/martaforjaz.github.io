@@ -37,7 +37,7 @@ def archival_lines(filename):
         yield " ".join(tokens[x][1] for x in sorted(tokens))
 
 def main(args):
-    checkpoint=torch.load("results/checkpoint.pt",weights_only=True,map_location="cpu")
+    checkpoint=torch.load(args.checkpoint,weights_only=True,map_location="cpu")
     alphabet=checkpoint["alphabet"]
     model=Recognizer(len(alphabet)+1)
     model.load_state_dict(checkpoint["state"])
@@ -57,11 +57,13 @@ def main(args):
     for name in ("archived_ocr","neural_ocr"):
         result[name]={"cer":sum(edit(r["reference"],r[name]) for r in rows)/letters,
                       "wer":sum(edit(r["reference"].split(),r[name].split()) for r in rows)/words}
-    Path("results/williamsburg-pilot.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    Path(args.output).write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps(result,indent=2,ensure_ascii=True))
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument("image")
     parser.add_argument("--alto",default="data/williamsburg-alto.xml")
+    parser.add_argument("--checkpoint",default="results/checkpoint.pt")
+    parser.add_argument("--output",default="results/williamsburg-pilot.json")
     main(parser.parse_args())
